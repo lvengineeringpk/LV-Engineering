@@ -1,0 +1,6 @@
+{
+  "name": "LV Engineering",
+  "description": "LV Engineering provides electrical, instrumentation, automation, fire & safety, power generation, solar energy and industrial engineering solutions for commercial and industrial applications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

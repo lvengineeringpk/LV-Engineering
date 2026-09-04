@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* LV Engineering Authentic Brand Colors */
+    --brand-red: #a81c24;
+    --brand-red-hover: #8e151d;
+    --brand-blue: #1e73be;
+    --brand-blue-hover: #165ba8;
+    --brand-charcoal: #1e2329;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: #334155;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    color: #0f172a;
+  }
+}
+
+/* Technical blueprint grid and HUD utilities for light mode */
+.bg-tech-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+}
+
+.bg-tech-dots {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(30, 115, 190, 0.12) 1px, transparent 1px);
+}
+
+.glow-cyan-sm {
+  box-shadow: 0 4px 14px -2px rgba(30, 115, 190, 0.2);
+}
+
+.glow-cyan-md {
+  box-shadow: 0 6px 20px -3px rgba(30, 115, 190, 0.3);
+}
+
+.glow-red-sm {
+  box-shadow: 0 4px 14px -2px rgba(168, 28, 36, 0.25);
+}
+
+.glow-red-md {
+  box-shadow: 0 6px 22px -3px rgba(168, 28, 36, 0.35);
+}
+
+.glow-blue-sm {
+  box-shadow: 0 4px 14px -2px rgba(30, 115, 190, 0.25);
+}
+
+/* Engineering brand buttons matching logo palette */
+.btn-pill-red {
+  background-color: #a81c24;
+  color: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px -2px rgba(168, 28, 36, 0.35);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-pill-red:hover {
+  background-color: #8e151d;
+  box-shadow: 0 6px 20px -2px rgba(168, 28, 36, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-pill-blue {
+  background-color: #1e73be;
+  color: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px -2px rgba(30, 115, 190, 0.35);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-pill-blue:hover {
+  background-color: #165ba8;
+  box-shadow: 0 6px 20px -2px rgba(30, 115, 190, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Precision technical card for crisp light theme */
+.tech-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+.tech-card:hover {
+  border-color: #1e73be;
+  box-shadow: 0 10px 25px -5px rgba(30, 115, 190, 0.1), 0 8px 10px -6px rgba(30, 115, 190, 0.1);
+}
+
+/* Clean light scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1e73be;
+}
+
