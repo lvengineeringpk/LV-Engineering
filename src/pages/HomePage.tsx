@@ -77,6 +77,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <SolutionsSection
         onSelectSolution={onSelectSolution}
         onViewAll={() => onNavigate('/solutions')}
+        onRequestConsultation={onRequestConsultation}
       />
 
       {/* 08. Featured 3D Technology Showcase */}

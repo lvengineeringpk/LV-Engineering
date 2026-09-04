@@ -110,6 +110,8 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({
                 src={activeSolution.image}
                 alt={activeSolution.title}
                 className="w-full h-full object-cover object-center"
+                referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 

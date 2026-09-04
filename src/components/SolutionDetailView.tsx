@@ -203,6 +203,14 @@ export const SolutionDetailView: React.FC<SolutionDetailViewProps> = ({
                   <span className="font-medium">Lahore Desk:</span>
                   <a href="tel:03222222805" className="text-slate-900 font-bold hover:text-[#a81c24]">0322-2222805</a>
                 </div>
+                <div className="flex justify-between pt-1 border-t border-slate-100">
+                  <span className="font-medium">Direct Email:</span>
+                  <a href="mailto:info@lv-engineering.com" className="text-[#1e73be] font-bold hover:underline">info@lv-engineering.com</a>
+                </div>
+                <div className="flex justify-between">
+                  <span className="font-medium">WhatsApp:</span>
+                  <a href="https://wa.me/923011484433" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">0301-1484433</a>
+                </div>
               </div>
             </div>
 

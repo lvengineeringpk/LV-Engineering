@@ -11,9 +11,17 @@ import {
   ArrowRight,
   ShieldCheck,
   Compass,
+  MessageCircle,
+  Copy,
 } from 'lucide-react';
 import { COMPANY_INFO, OFFICES, SOLUTIONS } from '../data/companyData';
 import { ConsultationFormData } from '../types';
+import {
+  createInquiryMailtoLink,
+  createWhatsAppLink,
+  OFFICIAL_INQUIRY_EMAIL,
+  WHATSAPP_LINK,
+} from '../utils/contactUtils';
 
 interface ContactSectionProps {
   preselectedService?: string;
@@ -36,6 +44,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [lastMailtoUrl, setLastMailtoUrl] = useState('');
+  const [lastWhatsAppUrl, setLastWhatsAppUrl] = useState('');
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const getActiveSolutionTitle = () => {
+    const s = SOLUTIONS.find((item) => item.id === formData.serviceId);
+    return s ? s.title : formData.serviceId;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,11 +65,45 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
     setSubmitting(true);
 
-    // Simulate reliable client-side processing with clear confirmation
+    const serviceTitle = getActiveSolutionTitle();
+    const mailtoUrl = createInquiryMailtoLink({
+      fullName: formData.fullName,
+      company: formData.company,
+      email: formData.email,
+      phone: formData.phone,
+      serviceTitle,
+      projectType: formData.projectType,
+      message: formData.message,
+      source: 'Contact Us Section',
+    });
+
+    const waUrl = createWhatsAppLink({
+      fullName: formData.fullName,
+      company: formData.company,
+      phone: formData.phone,
+      serviceTitle,
+      message: formData.message,
+    });
+
+    setLastMailtoUrl(mailtoUrl);
+    setLastWhatsAppUrl(waUrl);
+
+    try {
+      window.location.href = mailtoUrl;
+    } catch {
+      // Handled via button fallback
+    }
+
     setTimeout(() => {
       setSubmitting(false);
       setSubmitted(true);
-    }, 600);
+    }, 400);
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(OFFICIAL_INQUIRY_EMAIL);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
   };
 
   const currentOffice = OFFICES.find((o) => o.city === activeOfficeCity) || OFFICES[0];
@@ -99,17 +149,60 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {submitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-red-50 border border-red-200 flex items-center justify-center mx-auto text-[#a81c24]">
+              <div className="py-10 text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-300 flex items-center justify-center mx-auto text-emerald-600">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h4 className="text-2xl font-black text-slate-900 font-heading">
-                  Inquiry Successfully Registered
-                </h4>
+                <div className="space-y-1">
+                  <h4 className="text-2xl font-black text-slate-900 font-heading">
+                    Inquiry Formatted & Prepared for info@lv-engineering.com
+                  </h4>
+                  <p className="text-xs text-emerald-700 font-mono font-bold">
+                    ✓ Routed Directly to Karachi & Lahore Engineering Desks
+                  </p>
+                </div>
                 <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-slate-900">{formData.fullName}</strong>. Your technical consultation request for <strong className="text-[#1e73be]">{formData.company || 'your facility'}</strong> has been assigned. An LV Engineering specialist will contact you directly at <strong className="text-slate-900">{formData.phone}</strong>.
+                  Thank you, <strong className="text-slate-900">{formData.fullName}</strong>. Your technical consultation request for <strong className="text-[#1e73be]">{formData.company || 'your facility'}</strong> has been generated for official review. An LV Engineering specialist will contact you directly at <strong className="text-slate-900">{formData.phone}</strong>.
                 </p>
-                <div className="pt-4">
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 max-w-md mx-auto text-left space-y-2 font-mono text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500">Destination Desk:</span>
+                    <span className="font-bold text-slate-900">{OFFICIAL_INQUIRY_EMAIL}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500">WhatsApp Intake:</span>
+                    <span className="font-bold text-[#25D366]">+92 301 1484433</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-2.5 justify-center pt-2">
+                  <a
+                    href={lastMailtoUrl || `mailto:${OFFICIAL_INQUIRY_EMAIL}`}
+                    className="px-5 py-2.5 rounded-full btn-pill-red text-xs font-mono uppercase font-bold flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Open in Mail Client</span>
+                  </a>
+                  <a
+                    href={lastWhatsAppUrl || createWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-mono uppercase font-bold flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>Chat via WhatsApp</span>
+                  </a>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="px-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-mono uppercase font-semibold flex items-center justify-center gap-1.5"
+                  >
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>{copiedEmail ? 'Copied!' : 'Copy Email'}</span>
+                  </button>
+                </div>
+
+                <div className="pt-3">
                   <button
                     onClick={() => {
                       setSubmitted(false);
@@ -123,7 +216,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         message: '',
                       });
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-slate-100 border border-slate-200 text-xs font-mono uppercase text-slate-700 hover:text-slate-900 hover:bg-slate-200 transition-colors font-bold shadow-sm"
+                    className="text-xs text-slate-500 hover:text-slate-900 underline font-mono"
                   >
                     Submit Another Inquiry
                   </button>
@@ -268,14 +361,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     disabled={submitting}
                     className="w-full py-4 btn-pill-red font-bold font-mono uppercase text-xs tracking-wider transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.99] disabled:opacity-50 shadow-md"
                   >
-                    <span>{submitting ? 'PROCESSING INTAKE...' : 'SEND INQUIRY TO ENGINEERING DESK'}</span>
+                    <span>{submitting ? 'DISPATCHING TO INFO@LV-ENGINEERING.COM...' : 'SEND INQUIRY TO INFO@LV-ENGINEERING.COM'}</span>
                     <Send className="w-4 h-4" />
                   </button>
                 </div>
 
                 <div className="text-[11px] font-mono text-slate-500 text-center flex items-center justify-center gap-1.5 pt-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#1e73be]" />
-                  <span>Confidentiality Guaranteed • Direct Engineering Review</span>
+                  <span>Direct Route to info@lv-engineering.com • Strict Engineering Privacy</span>
                 </div>
               </form>
             )}

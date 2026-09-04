@@ -11,6 +11,9 @@ import {
   Maximize2,
   Building2,
   Cpu,
+  Wrench,
+  FileCheck2,
+  Headphones,
 } from 'lucide-react';
 import { SOLUTIONS } from '../data/companyData';
 import { SolutionItem } from '../types';
@@ -18,11 +21,13 @@ import { SolutionItem } from '../types';
 interface SolutionsSectionProps {
   onSelectSolution: (solution: SolutionItem) => void;
   onViewAll?: () => void;
+  onRequestConsultation?: (serviceName?: string) => void;
 }
 
 export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
   onSelectSolution,
   onViewAll,
+  onRequestConsultation,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
@@ -62,6 +67,8 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
   };
 
   const currentList = filterSolutions();
+  const remainder = currentList.length % 3;
+  const neededCards = remainder === 0 ? 0 : 3 - remainder;
 
   return (
     <section id="solutions" className="relative py-24 bg-white border-t border-slate-200">
@@ -204,6 +211,157 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
               </div>
             );
           })}
+
+          {/* Complementary Engineering Cards to Guarantee Full 3-Column Grid with ZERO Blank Spaces */}
+          {neededCards >= 1 && (
+            <div className="group relative rounded-2xl overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 hover:border-[#1e73be] hover:shadow-xl transition-all duration-300 flex flex-col justify-between shadow-sm h-full text-white">
+              {/* Top Visual Banner */}
+              <div className="relative w-full h-56 overflow-hidden bg-slate-900 flex-shrink-0 flex items-center justify-center p-6 border-b border-slate-800">
+                <div className="absolute inset-0 bg-tech-grid opacity-25" />
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Wrench className="w-7 h-7 text-[#1e73be]" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-blue-400 font-bold">
+                    Custom Project Scoping
+                  </span>
+                  <span className="text-xs text-slate-400 mt-1 font-medium">
+                    Turnkey Engineering & BOQ
+                  </span>
+                </div>
+
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white font-bold border border-white/15">
+                    Engineering Services
+                  </span>
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-[#a81c24] text-white">
+                    Free Consultation
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="min-h-[3.25rem] flex items-start">
+                    <h3 className="text-xl font-black text-white font-heading group-hover:text-blue-400 transition-colors leading-snug">
+                      Turnkey System Engineering & Site Audit
+                    </h3>
+                  </div>
+
+                  <p className="text-xs text-slate-300 mt-2 line-clamp-2 leading-relaxed min-h-[2.5rem]">
+                    Comprehensive electrical layout design, load flow simulations, single-line diagrams (SLD), and safety compliance reviews.
+                  </p>
+
+                  <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 min-h-[5.5rem] flex flex-col justify-center">
+                    <div className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                      <span className="line-clamp-1">IEC 61439 Form 4b switchboard calculations</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                      <span className="line-clamp-1">Civil Defense & NFPA compliant submission packages</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                      <span className="line-clamp-1">Free on-site facility audit & load profiling</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between mt-auto">
+                  <div className="text-[11px] font-mono text-slate-400 font-medium truncate max-w-[150px]">
+                    Advisory: Direct Engineers
+                  </div>
+
+                  <button
+                    onClick={() => onRequestConsultation ? onRequestConsultation('Turnkey Engineering Scoping') : undefined}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-white hover:text-blue-300 group-hover:translate-x-1 transition-all flex-shrink-0"
+                  >
+                    <span>Request Scoping</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="h-[3px] w-0 group-hover:w-full bg-gradient-to-r from-blue-500 to-[#1e73be] transition-all duration-300" />
+            </div>
+          )}
+
+          {neededCards >= 2 && (
+            <div className="group relative rounded-2xl overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 hover:border-[#a81c24] hover:shadow-xl transition-all duration-300 flex flex-col justify-between shadow-sm h-full text-white">
+              {/* Top Visual Banner */}
+              <div className="relative w-full h-56 overflow-hidden bg-slate-900 flex-shrink-0 flex items-center justify-center p-6 border-b border-slate-800">
+                <div className="absolute inset-0 bg-tech-grid opacity-25" />
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-red-600/20 border border-red-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Headphones className="w-7 h-7 text-[#a81c24]" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-red-400 font-bold">
+                    Uptime Assurance
+                  </span>
+                  <span className="text-xs text-slate-400 mt-1 font-medium">
+                    24/7 Field Response & Maintenance
+                  </span>
+                </div>
+
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white font-bold border border-white/15">
+                    Lifecycle Support
+                  </span>
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-[#1e73be] text-white">
+                    24/7 Hotline
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="min-h-[3.25rem] flex items-start">
+                    <h3 className="text-xl font-black text-white font-heading group-hover:text-red-400 transition-colors leading-snug">
+                      24/7 AMC & Emergency Technical Response
+                    </h3>
+                  </div>
+
+                  <p className="text-xs text-slate-300 mt-2 line-clamp-2 leading-relaxed min-h-[2.5rem]">
+                    Guaranteed rapid technician dispatch, annual maintenance contracts (AMC), thermal imaging, and calibrated OEM spares.
+                  </p>
+
+                  <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 min-h-[5.5rem] flex flex-col justify-center">
+                    <div className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                      <span className="line-clamp-1">Infrared thermal scanning for switchgear & busbars</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                      <span className="line-clamp-1">Generator load banking & fuel telemetry testing</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                      <span className="line-clamp-1">Rapid emergency SLAs for continuous plants</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between mt-auto">
+                  <div className="text-[11px] font-mono text-slate-400 font-medium truncate max-w-[150px]">
+                    SLA: Sub-4h Dispatch
+                  </div>
+
+                  <button
+                    onClick={() => onRequestConsultation ? onRequestConsultation('Annual Maintenance Contract (AMC)') : undefined}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-white hover:text-red-300 group-hover:translate-x-1 transition-all flex-shrink-0"
+                  >
+                    <span>Inquire AMC</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="h-[3px] w-0 group-hover:w-full bg-gradient-to-r from-red-500 to-[#a81c24] transition-all duration-300" />
+            </div>
+          )}
         </div>
 
       </div>

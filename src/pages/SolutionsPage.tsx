@@ -34,7 +34,10 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({
       </section>
 
       {/* Solutions Grid */}
-      <SolutionsSection onSelectSolution={onSelectSolution} />
+      <SolutionsSection
+        onSelectSolution={onSelectSolution}
+        onRequestConsultation={onRequestConsultation}
+      />
 
       {/* Technology Showcase Detail */}
       <TechShowcase

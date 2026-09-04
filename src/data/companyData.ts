@@ -221,7 +221,7 @@ export const SOLUTIONS: SolutionItem[] = [
     description:
       'Low Voltage Engineering delivers complete industrial and commercial electrical services from main distribution to final point wiring, utilizing precision cable tray systems, L.T. panels, and motor control centers.',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/electrical_services.jpg',
     details: [
       'Low Tension (L.T.) Panels, Distribution Boards (DBs) & MCC Panels',
       'Cable Trays, Heavy Cable Ladders & Cable Mesh Systems',
@@ -254,7 +254,7 @@ export const SOLUTIONS: SolutionItem[] = [
     description:
       'Advanced industrial automation engineering designed to modernize plant performance. We program, build, and deploy custom PLC panels, supervisory SCADA dashboards, and instrumentation loops.',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/automation_instrumentation.jpg',
     details: [
       'Programmable Logic Controllers (PLC) Programming & Integration',
       'Supervisory Control and Data Acquisition (SCADA) Architectures',
@@ -288,7 +288,7 @@ export const SOLUTIONS: SolutionItem[] = [
     partnerBrand: 'Starkgen',
     partnerOrigin: 'Turkey',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/power_generation.jpg',
     details: [
       'Special Customized Diesel Generating Sets up to 3 MWe Capacity',
       'Compact, Stackable and Modular Design (Up to 24 units loadable per shipment)',
@@ -325,7 +325,7 @@ export const SOLUTIONS: SolutionItem[] = [
     partnerBrand: 'Bristol Fire Engineering',
     partnerOrigin: 'Middle East (Since 1974)',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1542013936693-884638332954?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/fire_fighting.jpg',
     details: [
       'Certified Fire Pumps (Diesel-Driven, Electric Motor & Jockey Pump Sets)',
       'Fire Sprinkler Systems, Heads, Valves & Water Flow Detectors',
@@ -361,7 +361,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Utilizing advanced Nittan addressable fire alarm technology (UL & LPCB listed), our systems continuously monitor smoke density, device health, and pinpoint exact physical room locations during emergencies.',
     partnerBrand: 'Nittan',
     partnerOrigin: 'Global (UL / LPCB Listed)',
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/fire_alarm.jpg',
     details: [
       'Intelligent Addressable Fire Alarm Control Panels (FACP)',
       'Precision Multi-Sensor, Optical Smoke & Thermal Heat Detectors',
@@ -397,7 +397,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Partnering with FOREND Electrical Co (specialists in lightning protection and earthing since 1977), we engineer active Early Streamer Emission (ESE) conductors and low-impedance grounding grids.',
     partnerBrand: 'Forend Electrical Co',
     partnerOrigin: 'Since 1977 (Compliant ISO 9001/2000)',
-    image: 'https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/lightning_protection.jpg',
     details: [
       'Forend Early Streamer Emission (ESE) Lightning Conductors',
       'Active Protection Envelope Encompassing the Entire Building & Perimeters',
@@ -432,7 +432,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Engineered in partnership with Hakel spol. s r.o. (Czech Republic, established 1994), leading global manufacturer of surge arresters, insulation monitors, and transient voltage suppression devices.',
     partnerBrand: 'Hakel spol. s r.o.',
     partnerOrigin: 'Czech Republic (Founded 1994)',
-    image: 'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/surge_protection.jpg',
     details: [
       'Type 1, Type 2, and Type 3 Low-Voltage Surge Protective Devices',
       'Specialized Pipeline Cathodic Protection and Insulating Flange Spark Gaps',
@@ -466,7 +466,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Representing Clever Light (Hungary, established 1998), we deploy state-of-the-art emergency egress lighting, exit route indicators, and centralized 220V AC/DC battery monitoring systems.',
     partnerBrand: 'Clever Light',
     partnerOrigin: 'Hungary (Since 1998)',
-    image: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/emergency_lighting.jpg',
     details: [
       'Self-Contained Addressable Emergency Lighting Systems with Automated Testing',
       'Addressable Central Battery Systems 220V AC/DC with Centralized Management',
@@ -500,7 +500,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'We supply and commission world-class measurement instrumentation from Endress+Hauser, optimizing industrial facilities for economic efficiency, plant safety, emissions reduction, and standards compliance.',
     partnerBrand: 'Endress+Hauser',
     partnerOrigin: 'Global Process Leader',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/flow_measurement.jpg',
     details: [
       'Electromagnetic, Coriolis Mass, Vortex and Ultrasonic Flow Meters',
       'Continuous Level Measurement (Radar, Guided Wave, Ultrasonic & Capacitance)',
@@ -536,7 +536,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Deploying CASS Parking technology—one of the most impressive systems for smart parking guidance, ultrasonic/camera space sensors, automated counting, find-your-car kiosks, and occupancy optimization.',
     partnerBrand: 'CASS Parking',
     partnerOrigin: 'Smart Parking Leader',
-    image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/parking_guidance.jpg',
     details: [
       'Overhead Ultrasonic and Video-Based Parking Space Sensors',
       'Real-Time Outdoor & Indoor LED Directional Variable Message Displays',
@@ -572,7 +572,7 @@ export const SOLUTIONS: SolutionItem[] = [
       'Backed by SJEC vast manufacturing and installation experience, we source, erect, and commission comprehensive transportation systems for heavy commercial, hospital, and industrial environments.',
     partnerBrand: 'SJEC',
     partnerOrigin: 'Global Transportation Leader',
-    image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/elevators_escalators.jpg',
     details: [
       'High-Speed Gearless Passenger Lifts for Commercial & Residential Towers',
       'Hospital Patient Bed Lifts with Smooth Leveling & Extended Cabin Depths',
@@ -605,7 +605,7 @@ export const SOLUTIONS: SolutionItem[] = [
     headline: 'Customized photovoltaic systems designed for optimal harvest, durability and ROI.',
     description:
       'LV Engineering delivers complete turnkey solar energy solutions. From initial irradiance modeling and premium tier-one equipment selection to structural fabrication, installation, and final grid synchronization.',
-    image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/solar_energy.jpg',
     details: [
       'Tailored System Design Calculated on Client Usage and Load Profiles',
       'Tier-1 High-Efficiency Monocrystalline Bifacial PV Modules',
@@ -638,7 +638,7 @@ export const SOLUTIONS: SolutionItem[] = [
     headline: 'Circuit breakers, isolation assemblies, switchboards, and protection switchgear.',
     description:
       'Dedicated engineering for electrical switchgear, circuit breakers, fuses, switches, isolation devices, and custom-assembled switchboards built for maximum electrical safety and short-circuit withstand.',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/switchgear.jpg',
     details: [
       'Low Voltage Electrical Switchgear Assemblies and Main Incomers',
       'Air Circuit Breakers (ACB) and Molded Case Circuit Breakers (MCCB)',
@@ -671,7 +671,7 @@ export const INDUSTRIES: IndustryItem[] = [
     tagline: 'Continuous uptime for intensive manufacturing',
     description:
       'Heavy process industries require uncompromised power stability, robust switchgear, and fail-safe automation to protect million-dollar machinery and maintain high yield.',
-    image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/industry_heavy_facilities.jpg',
     criticalFocus: [
       'Harmonic mitigation & voltage stabilization',
       'MCC panels and heavy motor starters',
@@ -1038,7 +1038,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       { label: 'Connected Capacity', value: '14.5 MVA' },
       { label: 'Annual Uptime', value: '99.98%' },
     ],
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/nishat_chunian.jpg',
   },
   {
     id: 'lucky-one-tower-mall',
@@ -1064,12 +1064,12 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       { label: 'Avg Parking Search Time', value: '-65% Reduction' },
       { label: 'Substation Rating', value: '8.0 MVA Dry Type' },
     ],
-    image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/lucky_one_mall.jpg',
   },
   {
     id: 'engro-polymer-substations',
-    title: 'Engro Polymer & Petrochemical Substations',
-    clientIndustry: 'Petrochemical & Hazardous Processing',
+    title: 'Industrial Facilities & Heavy Plants (Engro Polymer Complex)',
+    clientIndustry: 'Petrochemical & Heavy Industrial Facilities',
     location: 'Port Qasim, Karachi',
     category: 'Power & Energy',
     year: '2023',
@@ -1090,7 +1090,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       { label: 'Fire Pumping Head', value: '150 PSI @ 2000 GPM' },
       { label: 'Hazard Classification', value: 'Zone 1 / Class I Div 1' },
     ],
-    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/industrial_heavy_plants.jpg',
   },
   {
     id: 'shaukat-khanum-hospital',
@@ -1168,7 +1168,7 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       { label: 'Escalator Units', value: '12 Heavy Duty' },
       { label: 'Lightning Protection Zone', value: 'Level 1 Protection' },
     ],
-    image: 'https://images.unsplash.com/photo-1580795478844-5ed694336c90?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/images/packages_mall.jpg',
   },
 ];
 

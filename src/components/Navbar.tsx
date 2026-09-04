@@ -331,19 +331,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Solar
               </button>
 
-              {/* HSEQ */}
-              <button
-                onClick={() => handleLinkClick('/hseq')}
-                className={`px-3 py-2 text-sm font-semibold transition-colors rounded ${
-                  currentPath.startsWith('/hseq')
-                    ? 'text-[#a81c24] bg-red-50/70 font-bold'
-                    : 'text-slate-700 hover:text-[#1e73be] hover:bg-slate-50'
-                }`}
-                id="nav-link-hseq"
-              >
-                HSEQ
-              </button>
-
               {/* Contact */}
               <button
                 onClick={() => handleLinkClick('/contact')}
@@ -508,13 +495,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="text-left py-3 px-4 rounded-xl font-semibold text-base text-slate-800 hover:bg-slate-50 flex items-center justify-between"
             >
               <span>Solar Energy Solutions</span>
-              <ArrowRight className="w-4 h-4 text-slate-400" />
-            </button>
-            <button
-              onClick={() => handleLinkClick('/hseq')}
-              className="text-left py-3 px-4 rounded-xl font-semibold text-base text-slate-800 hover:bg-slate-50 flex items-center justify-between"
-            >
-              <span>HSEQ Policy & Commitments</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
             <button

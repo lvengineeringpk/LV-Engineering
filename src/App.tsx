@@ -16,6 +16,7 @@ import { ProcessSection } from './components/ProcessSection';
 import { SolarSection } from './components/SolarSection';
 import { ElectricalServicesSection } from './components/ElectricalServicesSection';
 import { ContactSection } from './components/ContactSection';
+import { LiveChatWhatsApp } from './components/LiveChatWhatsApp';
 import { SOLUTIONS } from './data/companyData';
 import { SolutionItem } from './types';
 
@@ -205,6 +206,9 @@ export default function App() {
         onClose={() => setConsultationModalOpen(false)}
         preselectedService={preselectedService}
       />
+
+      {/* Floating Live Chat via WhatsApp */}
+      <LiveChatWhatsApp />
     </div>
   );
 }
