@@ -76,7 +76,7 @@ export interface ProjectCaseStudy {
   title: string;
   clientIndustry: string;
   location: string;
-  category: 'Industrial' | 'Commercial' | 'Power & Energy' | 'Life Safety' | 'Infrastructure';
+  category: 'Industrial' | 'Commercial' | 'Power & Energy' | 'Renewable Energy' | 'Life Safety' | 'Infrastructure';
   year: string;
   scopeSummary: string;
   challenge: string;

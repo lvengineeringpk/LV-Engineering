@@ -123,9 +123,10 @@ export const Interactive3DViewer: React.FC<{
   const [isWireframe, setIsWireframe] = useState(false);
   const [isRotating, setIsRotating] = useState(true);
   const [loadFactor, setLoadFactor] = useState(78);
-  const [rotX, setRotX] = useState(-0.35);
-  const [rotY, setRotY] = useState(0.65);
-  const [zoom, setZoom] = useState(1);
+  const rotXRef = useRef(-0.35);
+  const rotYRef = useRef(0.65);
+  const zoomRef = useRef(1);
+  const rotationTelemetryRef = useRef<HTMLDivElement | null>(null);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const isDraggingRef = useRef(false);
@@ -144,8 +145,8 @@ export const Interactive3DViewer: React.FC<{
     if (!isDraggingRef.current) return;
     const dx = e.clientX - lastMousePosRef.current.x;
     const dy = e.clientY - lastMousePosRef.current.y;
-    setRotY((prev) => prev + dx * 0.008);
-    setRotX((prev) => Math.max(-1.2, Math.min(1.2, prev + dy * 0.008)));
+    rotYRef.current += dx * 0.008;
+    rotXRef.current = Math.max(-1.2, Math.min(1.2, rotXRef.current + dy * 0.008));
     lastMousePosRef.current = { x: e.clientX, y: e.clientY };
   };
 
@@ -154,9 +155,9 @@ export const Interactive3DViewer: React.FC<{
   };
 
   const handleResetView = () => {
-    setRotX(-0.35);
-    setRotY(0.65);
-    setZoom(1);
+    rotXRef.current = -0.35;
+    rotYRef.current = 0.65;
+    zoomRef.current = 1;
   };
 
   // Render loop using 3D vector rotation and depth sorting
@@ -173,7 +174,14 @@ export const Interactive3DViewer: React.FC<{
 
       // Handle automatic turntable rotation if enabled and not currently dragging
       if (isRotating && !isDraggingRef.current) {
-        setRotY((prev) => prev + 0.005);
+        rotYRef.current += 0.005;
+      }
+
+      // Update rotation vector readout in DOM without triggering React re-renders
+      if (rotationTelemetryRef.current) {
+        const degX = (rotXRef.current * (180 / Math.PI)).toFixed(1);
+        const degY = (rotYRef.current * (180 / Math.PI)).toFixed(1);
+        rotationTelemetryRef.current.textContent = `X: ${degX}° | Y: ${degY}°`;
       }
 
       const width = canvas.width;
@@ -186,19 +194,19 @@ export const Interactive3DViewer: React.FC<{
       // 3D Matrix Rotation Helper
       const project = (x: number, y: number, z: number) => {
         // Rotate around Y axis
-        const cosY = Math.cos(rotY);
-        const sinY = Math.sin(rotY);
+        const cosY = Math.cos(rotYRef.current);
+        const sinY = Math.sin(rotYRef.current);
         const x1 = x * cosY + z * sinY;
         const z1 = -x * sinY + z * cosY;
 
         // Rotate around X axis
-        const cosX = Math.cos(rotX);
-        const sinX = Math.sin(rotX);
+        const cosX = Math.cos(rotXRef.current);
+        const sinX = Math.sin(rotXRef.current);
         const y2 = y * cosX - z1 * sinX;
         const z2 = y * sinX + z1 * cosX;
 
         // Isometric perspective projection with zoom
-        const scale = (380 / (z2 + 600)) * zoom;
+        const scale = (380 / (z2 + 600)) * zoomRef.current;
         return {
           x: cx + x1 * scale,
           y: cy + y2 * scale,
@@ -481,7 +489,7 @@ export const Interactive3DViewer: React.FC<{
     return () => {
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
     };
-  }, [selectedSystem, isWireframe, isRotating, rotX, rotY, zoom, loadFactor]);
+  }, [selectedSystem, isWireframe, isRotating, loadFactor]);
 
   return (
     <div
@@ -576,8 +584,8 @@ export const Interactive3DViewer: React.FC<{
         {/* Right Telemetry Readouts */}
         <div className="absolute top-4 right-4 p-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm text-[10px] font-mono space-y-1 text-right pointer-events-none">
           <div className="text-slate-400 font-semibold">ROTATION VECTOR</div>
-          <div className="text-slate-800 font-bold">
-            X: {(rotX * (180 / Math.PI)).toFixed(1)}° | Y: {(rotY * (180 / Math.PI)).toFixed(1)}°
+          <div ref={rotationTelemetryRef} className="text-slate-800 font-bold">
+            X: -20.1° | Y: 37.2°
           </div>
           <div className="text-slate-400 pt-1 font-semibold">LIVE LOAD FACTOR</div>
           <div className="text-[#a81c24] font-bold">{loadFactor}% OPERATING</div>

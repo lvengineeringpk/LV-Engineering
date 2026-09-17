@@ -21,7 +21,7 @@ export const ProjectsPortfolioSection: React.FC<ProjectsPortfolioSectionProps> =
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeProject, setActiveProject] = useState<ProjectCaseStudy | null>(null);
 
-  const categories = ['All', 'Industrial', 'Commercial', 'Power & Energy', 'Life Safety', 'Infrastructure'];
+  const categories = ['All', 'Industrial', 'Commercial', 'Power & Energy', 'Renewable Energy', 'Life Safety', 'Infrastructure'];
 
   const filteredProjects = PROJECT_CASE_STUDIES.filter(
     (p) => selectedCategory === 'All' || p.category === selectedCategory

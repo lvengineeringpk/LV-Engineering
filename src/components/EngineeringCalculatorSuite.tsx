@@ -233,7 +233,7 @@ export const EngineeringCalculatorSuite: React.FC = () => {
               <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 font-mono flex items-start gap-3 shadow-sm">
                 <Info className="w-4 h-4 text-[#1e73be] flex-shrink-0 mt-0.5" />
                 <p>
-                  Standard calculations based on European Ecodesign Tier 2 & IEC 60076-11 specifications for Trafo Elettro cast resin dry-type transformers.
+                  Standard calculations based on European Ecodesign Tier 2 & IEC 60076-11 specifications for cast resin dry-type transformers.
                 </p>
               </div>
             </div>
@@ -245,7 +245,7 @@ export const EngineeringCalculatorSuite: React.FC = () => {
                   Engineered Output Specifications
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-red-50 text-[#a81c24] font-mono text-[10px] font-bold border border-red-200">
-                  TRAFO ELETTRO SPEC
+                  IEC 60076-11 SPEC
                 </span>
               </div>
 
@@ -386,7 +386,7 @@ export const EngineeringCalculatorSuite: React.FC = () => {
                           : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
                       }`}
                     >
-                      IGEL Soft Starter
+                      Solid-State Soft Starter
                     </button>
                   </div>
                 </div>
@@ -399,7 +399,7 @@ export const EngineeringCalculatorSuite: React.FC = () => {
                   Motor Dynamics & Inrush Analysis
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1e73be] font-mono text-[10px] font-bold border border-blue-200">
-                  IGEL ELECTRIC (GERMANY)
+                  SOLID-STATE DRIVE SPEC
                 </span>
               </div>
 
@@ -428,10 +428,10 @@ export const EngineeringCalculatorSuite: React.FC = () => {
 
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 font-mono sm:col-span-2">
                   <span className="text-[11px] text-emerald-700 uppercase font-bold">
-                    Recommended IGEL Electric Soft Starter Model
+                    Recommended Soft Starter Rating
                   </span>
                   <div className="text-xl font-black text-slate-900 mt-1">
-                    IGEL ISA-HD {(motorFla * 1.2).toFixed(0)}A Series
+                    Heavy-Duty Soft Starter {(motorFla * 1.2).toFixed(0)}A Series
                   </div>
                   <p className="text-xs text-slate-600 mt-2 font-sans leading-relaxed">
                     Solid-state thyristor regulation eliminates gearbox torque stress, caps electrical transformer demand surges, and includes internal bypass contactor for zero heat loss during steady run.
@@ -514,7 +514,7 @@ export const EngineeringCalculatorSuite: React.FC = () => {
             <div className="lg:col-span-6 p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 space-y-6 shadow-xl">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <span className="text-xs font-mono text-amber-700 uppercase tracking-wider font-bold">
-                  Recommended Hakel & Leutron SPD Class
+                  Recommended HAKEL SPD Class
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 font-mono text-[10px] font-bold border border-amber-200">
                   IEC 61643-11 COMPLIANT
@@ -527,7 +527,7 @@ export const EngineeringCalculatorSuite: React.FC = () => {
                     Main Low Tension Incomer: Type 1 + 2 Combined
                   </div>
                   <div className="text-lg font-black text-slate-900">
-                    Hakel SPC 50 / Leutron EnerPro Class I
+                    HAKEL Type 1 + 2 Combined Surge Arrester
                   </div>
                   <div className="text-xs text-slate-600 mt-2 font-sans">
                     Required impulse discharge Iimp ≥ 12.5kA (10/350µs) per pole. Protects main switchboard against direct lightning currents and utility switching transients.

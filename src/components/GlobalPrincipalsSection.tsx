@@ -22,10 +22,10 @@ export const GlobalPrincipalsSection: React.FC<GlobalPrincipalsSectionProps> = (
   const [selectedCountry, setSelectedCountry] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const countries = ['All', 'Germany', 'Italy', 'Czech Republic', 'Turkey', 'Switzerland', 'European Union', 'UAE / Global', 'Japan / UK'];
+  const countries = ['All', 'Czech Republic', 'Turkey', 'Hungary', 'UAE / Middle East', 'Japan / UK', 'Switzerland / Global', 'International'];
 
   const filteredPrincipals = GLOBAL_PRINCIPALS.filter((p) => {
-    const matchesCountry = selectedCountry === 'All' || p.country.includes(selectedCountry);
+    const matchesCountry = selectedCountry === 'All' || p.country.toLowerCase().includes(selectedCountry.toLowerCase().split(' ')[0]);
     const matchesSearch =
       searchQuery === '' ||
       p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -51,7 +51,7 @@ export const GlobalPrincipalsSection: React.FC<GlobalPrincipalsSectionProps> = (
               Global Principals & Technology Partners
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
-              LV Engineering represents and integrates internationally certified equipment from market-leading manufacturers across Germany, Italy, Switzerland, Japan, and the EU.
+              LV Engineering represents and integrates internationally certified equipment from market-leading manufacturers across the Czech Republic, Turkey, Hungary, UAE, Switzerland, Japan, and international partners.
             </p>
           </div>
 

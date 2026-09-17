@@ -41,7 +41,7 @@ export const MissionSection: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-[#a81c24] tracking-widest uppercase font-bold">
             <span className="w-4 h-[2px] bg-[#a81c24]" />
             <span>Guiding Purpose & Ethos</span>
@@ -51,8 +51,63 @@ export const MissionSection: React.FC = () => {
             Our Mission & Core Principles
           </h2>
           <p className="text-sm sm:text-base text-slate-600">
-            Eight foundational commitments that steer our engineering practice, client relationships, and industry contributions.
+            Four core mission pillars and foundational commitments that steer our engineering practice, client relationships, and industry contributions.
           </p>
+        </div>
+
+        {/* Core Profile Mission Block (Verbatim from Official Company Profile) */}
+        <div className="mb-12 p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5 mb-6">
+            <div>
+              <span className="text-[11px] font-mono tracking-widest text-[#a81c24] uppercase font-bold block">
+                Official Company Profile • Page 02
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 uppercase font-heading">
+                Our Mission Statements
+              </h3>
+            </div>
+            <div className="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs text-[#1e73be] font-bold self-start sm:self-auto">
+              “TURNING CONCEPTS INTO ENGINEERING MARVELS”
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#1e73be] flex items-center justify-center font-mono font-bold text-xs flex-shrink-0">
+                01
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                To provide an excellent service to our clients, by giving them their principal position in the business and by treating them with integrity and honesty they deserve.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-red-100 text-[#a81c24] flex items-center justify-center font-mono font-bold text-xs flex-shrink-0">
+                02
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                To deliver quality service on time and at the convenience of our clients.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-red-100 text-[#a81c24] flex items-center justify-center font-mono font-bold text-xs flex-shrink-0">
+                03
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                To always use quality material to give our customers value for their money.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#1e73be] flex items-center justify-center font-mono font-bold text-xs flex-shrink-0">
+                04
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                To train young professionals who wish to operate in the same industry.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 8 Mission Cards */}
