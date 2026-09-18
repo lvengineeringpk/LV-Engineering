@@ -22,7 +22,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
               Engineered In The Field. Proven In Operation.
             </h1>
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              Real-world execution data across textile manufacturing, commercial high-rise towers, petrochemical complexes, oncology hospitals, and automotive assembly facilities.
+              Verified engineering installations and completed project case studies across industrial manufacturing plants, commercial towers, critical facilities, and power infrastructure.
             </p>
           </div>
         </div>

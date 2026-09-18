@@ -1,22 +1,16 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
 import { AboutSection } from '../components/AboutSection';
-import { MissionSection } from '../components/MissionSection';
+import { ValuePillars } from '../components/ValuePillars';
 import { SolutionsCarousel } from '../components/SolutionsCarousel';
-import { ElectricalServicesSection } from '../components/ElectricalServicesSection';
-import { SolarSection } from '../components/SolarSection';
-import { SolutionsSection } from '../components/SolutionsSection';
-import { TechShowcase } from '../components/TechShowcase';
 import { GlobalPrincipalsSection } from '../components/GlobalPrincipalsSection';
 import { ProjectsPortfolioSection } from '../components/ProjectsPortfolioSection';
-import { EngineeringCalculatorSuite } from '../components/EngineeringCalculatorSuite';
 import { IndustriesSection } from '../components/IndustriesSection';
-import { ProcessSection } from '../components/ProcessSection';
-import { ValuePillars } from '../components/ValuePillars';
-import { HSEQSection } from '../components/HSEQSection';
-import { TechReferencesSection } from '../components/TechReferencesSection';
+import { EngineeringToolsBanner } from '../components/EngineeringToolsBanner';
+import { HSEQTrustBanner } from '../components/HSEQTrustBanner';
 import { ContactSection } from '../components/ContactSection';
 import { SolutionItem } from '../types';
+import { ArrowRight, Sun, Zap, CheckCircle2 } from 'lucide-react';
 
 interface HomePageProps {
   onSelectSolution: (solution: SolutionItem) => void;
@@ -31,7 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <div>
-      {/* 01. Full-Screen Cinematic Hero with Carousel & Interactive 3D Visuals */}
+      {/* 01. High-Impact Cinematic Hero */}
       <Hero
         onExploreSolutions={() => {
           const el = document.getElementById('solutions-carousel');
@@ -54,72 +48,75 @@ export const HomePage: React.FC<HomePageProps> = ({
         onRequestConsultation={() => onRequestConsultation()}
       />
 
-      {/* 03. Mission & Core Principles (8 Principles) */}
-      <MissionSection />
+      {/* 03. Core Value Pillars (Quality, Reliability, Technical Expertise, Client Focus) */}
+      <ValuePillars />
 
-      {/* 04. Interactive Solutions Carousel (12 Engineering Disciplines) */}
-      <SolutionsCarousel
-        onSelectSolution={onSelectSolution}
-        onRequestConsultation={onRequestConsultation}
-      />
+      {/* 04. Interactive Solutions Carousel (11 Official Disciplines) */}
+      <div>
+        <SolutionsCarousel
+          onSelectSolution={onSelectSolution}
+          onRequestConsultation={onRequestConsultation}
+        />
 
-      {/* 05. Electrical Services Grid (21+ Engineering Specializations) */}
-      <ElectricalServicesSection
-        onRequestConsultation={onRequestConsultation}
-      />
+        {/* Compact Quick-Action Bar for Dedicated Solution Pages */}
+        <div className="bg-slate-50 border-b border-slate-200 py-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+            <div className="flex items-center gap-2 text-slate-600 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#1e73be]" />
+              <span>Explore Dedicated Divisions:</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onNavigate('/services')}
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-slate-300 hover:border-[#1e73be] text-slate-800 font-bold hover:text-[#1e73be] transition-colors shadow-sm"
+              >
+                <Zap className="w-3.5 h-3.5 text-[#1e73be]" />
+                <span>Electrical Services & Cabling</span>
+                <ArrowRight className="w-3 h-3 ml-1" />
+              </button>
+              <button
+                onClick={() => onNavigate('/solar')}
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-slate-300 hover:border-amber-500 text-slate-800 font-bold hover:text-amber-600 transition-colors shadow-sm"
+              >
+                <Sun className="w-3.5 h-3.5 text-amber-500" />
+                <span>Turnkey Solar Solutions</span>
+                <ArrowRight className="w-3 h-3 ml-1" />
+              </button>
+              <button
+                onClick={() => onNavigate('/solutions')}
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#a81c24] text-white font-bold hover:bg-[#8e151d] transition-colors shadow-sm"
+              >
+                <span>Full 11-Discipline Catalog</span>
+                <ArrowRight className="w-3 h-3 ml-1" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {/* 06. Turnkey Solar Engineering & Renewable Solutions */}
-      <SolarSection
-        onRequestConsultation={onRequestConsultation}
-      />
-
-      {/* 07. Categorized Solutions Directory */}
-      <SolutionsSection
-        onSelectSolution={onSelectSolution}
-        onViewAll={() => onNavigate('/solutions')}
-        onRequestConsultation={onRequestConsultation}
-      />
-
-      {/* 08. Featured 3D Technology Showcase */}
-      <TechShowcase
-        onSelectSolution={onSelectSolution}
-        onRequestConsultation={onRequestConsultation}
-      />
-
-      {/* 09. Global Principals & Technology Alliances */}
+      {/* 05. Official Global Principals & Manufacturing Alliances */}
       <GlobalPrincipalsSection
         onSelectSolutionSlug={(slug) => onNavigate(`/solutions/${slug}`)}
         onRequestConsultation={onRequestConsultation}
       />
 
-      {/* 10. Real-World Projects & Case Studies Portfolio */}
+      {/* 06. Verified Projects & Field Installations */}
       <ProjectsPortfolioSection
         onRequestConsultation={onRequestConsultation}
       />
 
-      {/* 11. Engineering Calculators & Sizing Suite */}
-      <EngineeringCalculatorSuite />
-
-      {/* 12. Industries Engineered for Demanding Environments */}
+      {/* 07. Sectors & Demanding Environments */}
       <IndustriesSection
         onRequestConsultation={onRequestConsultation}
       />
 
-      {/* 13. Engineering Journey & Protocol */}
-      <ProcessSection />
+      {/* 08. Compact Engineering Sizing Suite Banner */}
+      <EngineeringToolsBanner onOpenTools={() => onNavigate('/tools')} />
 
-      {/* 14. Why LV Engineering (Quality, Technical Expertise, Reliability, Client Focus) */}
-      <ValuePillars />
+      {/* 09. Compact HSEQ & Standards Trust Bar */}
+      <HSEQTrustBanner onLearnMore={() => onNavigate('/hseq')} />
 
-      {/* 15. HSEQ Commitment & Safety Protocols (8 Core Mandates) */}
-      <HSEQSection onLearnMore={() => onNavigate('/hseq')} />
-
-      {/* 16. Technology & Product References */}
-      <TechReferencesSection
-        onSelectSolutionSlug={(slug) => onNavigate(`/solutions/${slug}`)}
-      />
-
-      {/* 17. Final Consultation CTA & Interactive Contact */}
+      {/* 10. Direct Consultation & Office Contacts (Karachi & Lahore) */}
       <ContactSection />
     </div>
   );

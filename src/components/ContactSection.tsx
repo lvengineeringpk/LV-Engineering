@@ -109,14 +109,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const currentOffice = OFFICES.find((o) => o.city === activeOfficeCity) || OFFICES[0];
 
   return (
-    <section id="contact" className="relative py-24 bg-slate-50 border-t border-slate-200">
+    <section id="contact" className="relative py-12 sm:py-16 bg-slate-50 border-t border-slate-200">
       {/* Background Graphic */}
       <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 space-y-4">
+        <div className="max-w-3xl mb-8 space-y-3">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-[#a81c24] tracking-widest uppercase font-bold">
             <span className="w-5 h-[2px] bg-[#a81c24]" />
             <span>Consultation & Direct Engineering Inquiry</span>

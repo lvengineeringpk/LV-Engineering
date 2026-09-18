@@ -48,7 +48,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   ];
 
   return (
-    <section id="about" className="relative py-24 bg-white border-t border-slate-200 overflow-hidden">
+    <section id="about" className="relative py-12 sm:py-16 bg-white border-t border-slate-200 overflow-hidden">
       {/* Background Subtle Tech Dots */}
       <div className="absolute inset-0 bg-tech-dots opacity-20 pointer-events-none" />
 

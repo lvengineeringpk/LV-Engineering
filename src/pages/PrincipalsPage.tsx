@@ -25,7 +25,7 @@ export const PrincipalsPage: React.FC<PrincipalsPageProps> = ({
               World-Class Manufacturers & Technology Partners
             </h1>
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              LV Engineering maintains strategic partnerships with internationally certified manufacturers from Germany, Italy, Czech Republic, Turkey, Switzerland, and Japan to supply and commission mission-critical systems.
+              LV Engineering maintains strategic partnerships with internationally certified manufacturers from the Czech Republic, Turkey, Hungary, the UAE, Switzerland, Japan, and global technology leaders to supply and commission mission-critical systems.
             </p>
           </div>
         </div>

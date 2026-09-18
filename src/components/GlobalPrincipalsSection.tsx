@@ -35,13 +35,13 @@ export const GlobalPrincipalsSection: React.FC<GlobalPrincipalsSectionProps> = (
   });
 
   return (
-    <section className="relative py-24 bg-white border-t border-slate-200" id="principals">
+    <section className="relative py-12 sm:py-16 bg-white border-t border-slate-200" id="principals">
       <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 font-mono text-xs text-[#a81c24] tracking-widest uppercase mb-3 font-bold">
               <span className="w-5 h-[2px] bg-[#a81c24]" />

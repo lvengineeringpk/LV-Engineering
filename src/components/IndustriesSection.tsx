@@ -39,14 +39,14 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
   const activeIndustry = INDUSTRIES[activeIndex] || INDUSTRIES[0];
 
   return (
-    <section id="industries" className="relative py-24 bg-slate-50 border-t border-slate-200 overflow-hidden">
+    <section id="industries" className="relative py-12 sm:py-16 bg-slate-50 border-t border-slate-200 overflow-hidden">
       {/* Background Graphic Lines */}
       <div className="absolute inset-0 bg-tech-dots opacity-15 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header with Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 font-mono text-xs text-[#a81c24] tracking-widest uppercase mb-3 font-bold">
               <span className="w-5 h-[2px] bg-[#a81c24]" />
