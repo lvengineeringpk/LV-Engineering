@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Menu,
   X,
-  Phone,
-  Mail,
   ChevronDown,
   ArrowRight,
   Shield,
@@ -107,53 +105,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md py-2 border-b border-slate-200 shadow-sm'
-            : 'bg-white/90 backdrop-blur-sm py-3 border-b border-slate-200/80'
+            ? 'bg-white/95 backdrop-blur-md py-2.5 border-b border-slate-200 shadow-sm'
+            : 'bg-white/90 backdrop-blur-sm py-3.5 border-b border-slate-200/80'
         }`}
       >
-        {/* Top Telemetry & Contact Bar */}
-        <div className="hidden lg:block border-b border-slate-200/70 pb-2 mb-2 text-xs text-slate-600">
-          <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <div className="flex items-center space-x-5">
-              <span className="flex items-center text-[#1e73be] font-mono tracking-wider font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#a81c24] inline-block mr-2 animate-pulse" />
-                LV ENGINEERING // TURNING CONCEPTS INTO ENGINEERING MARVELS
-              </span>
-              <span className="text-slate-300 font-mono">|</span>
-              <span className="text-slate-500 font-mono text-[11px]">ISO / IEC 61439 COMPLIANT</span>
-            </div>
-            
-            <div className="flex items-center space-x-5 font-mono text-slate-600 text-xs">
-              <a
-                href="tel:03011484433"
-                className="hover:text-[#a81c24] transition-colors flex items-center gap-1.5 font-bold"
-                title="Direct Karachi Office"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#a81c24]" />
-                <span>0301-1484433 (KHI)</span>
-              </a>
-              <span className="text-slate-300">|</span>
-              <a
-                href="tel:03222222805"
-                className="hover:text-[#a81c24] transition-colors flex items-center gap-1.5 font-bold"
-                title="Direct Lahore Office"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#1e73be]" />
-                <span>0322-2222805 (LHR)</span>
-              </a>
-              <span className="text-slate-300">|</span>
-              <a
-                href="mailto:info@lv-engineering.com"
-                className="hover:text-[#1e73be] transition-colors flex items-center gap-1.5 font-bold text-slate-800"
-                title="Official Engineering Inquiries"
-              >
-                <Mail className="w-3.5 h-3.5 text-[#a81c24]" />
-                <span>info@lv-engineering.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
@@ -519,26 +474,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ArrowRight className="w-4 h-4" />
             </button>
 
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono pt-2">
-              <a
-                href="tel:03011484433"
-                className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-center flex flex-col items-center gap-0.5 shadow-sm"
-              >
-                <span className="text-[#a81c24] font-bold text-[11px]">Karachi Office</span>
-                <span className="font-bold text-slate-900 text-xs">0301-1484433</span>
-              </a>
-              <a
-                href="tel:03222222805"
-                className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-center flex flex-col items-center gap-0.5 shadow-sm"
-              >
-                <span className="text-[#1e73be] font-bold text-[11px]">Lahore Office</span>
-                <span className="font-bold text-slate-900 text-xs">0322-2222805</span>
-              </a>
-            </div>
-
-            <div className="text-center pt-2 text-[11px] font-mono text-slate-500">
-              Direct: <a href="mailto:info@lv-engineering.com" className="text-slate-900 font-bold hover:underline">info@lv-engineering.com</a>
-            </div>
+            <button
+              onClick={() => handleLinkClick('/contact')}
+              className="w-full py-3 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold font-mono tracking-wider uppercase text-xs shadow-sm flex items-center justify-center gap-2 transition-colors"
+            >
+              <span>Regional Offices & Inquiries</span>
+              <ArrowRight className="w-4 h-4 text-slate-400" />
+            </button>
           </div>
         </div>
       )}

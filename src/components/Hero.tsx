@@ -140,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   return (
     <section
-      className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 pt-28 pb-16 border-b border-slate-200/80"
+      className="relative flex items-center justify-center overflow-hidden bg-slate-50 pt-20 pb-10 sm:pt-24 sm:pb-14 border-b border-slate-200/80"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       id="hero-section"
@@ -154,7 +154,7 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="absolute bottom-10 right-10 w-[600px] h-[400px] bg-blue-600/5 blur-[130px] rounded-full pointer-events-none" />
 
       {/* Decorative Technical Blueprint Lines & Coordinate Markers */}
-      <div className="absolute top-28 left-8 hidden xl:flex flex-col gap-1 font-mono text-[10px] text-slate-400 select-none">
+      <div className="absolute top-20 left-8 hidden xl:flex flex-col gap-1 font-mono text-[10px] text-slate-400 select-none">
         <span className="text-[#a81c24] font-bold">
           LOC.PK // LAT: 24.8290° N | LON: 67.0654° E
         </span>
@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({
         <span>SPEC: IEC 61439-1/2 • ISO 9001 ALIGNMENT</span>
       </div>
 
-      <div className="absolute top-28 right-8 hidden xl:flex flex-col items-end gap-1 font-mono text-[10px] text-slate-400 select-none">
+      <div className="absolute top-20 right-8 hidden xl:flex flex-col items-end gap-1 font-mono text-[10px] text-slate-400 select-none">
         <span className="flex items-center gap-1.5 text-[#1e73be] font-bold">
           <span className="w-2 h-2 rounded-full bg-[#1e73be] animate-pulse" />
           SYSTEM STATUS: ONLINE
