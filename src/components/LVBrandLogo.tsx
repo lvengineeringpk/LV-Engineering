@@ -24,94 +24,70 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
   };
 
   const iconSizes = {
-    sm: 'w-8 h-7',
-    md: 'w-12 h-10',
-    lg: 'w-16 h-14',
-    xl: 'w-24 h-20',
+    sm: 'w-8 h-8',
+    md: 'w-12 h-12',
+    lg: 'w-16 h-16',
+    xl: 'w-24 h-24',
   };
 
-  // Monogram SVG emblem element (reusable)
+  // Monogram SVG emblem element (Pure, solid, pixel-faithful to Original Logo)
   const renderEmblem = () => (
     <svg
-      viewBox="0 0 160 140"
+      viewBox="0 0 172 140"
       className="w-full h-full transition-transform duration-300 group-hover:scale-105 select-none"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* 1. Blue Industrial Gear (Background of Right Arm) */}
-      <g id="gear" fill="#1e73be">
-        {/* 6 Prominent Gear Teeth (Cogs) */}
-        <rect x="133" y="30" width="13" height="15" rx="1.5" transform="rotate(-38 139.5 37.5)" />
-        <rect x="144" y="50" width="13" height="15" rx="1.5" transform="rotate(-14 150.5 57.5)" />
-        <rect x="144" y="71" width="13" height="15" rx="1.5" transform="rotate(10 150.5 78.5)" />
-        <rect x="135" y="91" width="13" height="15" rx="1.5" transform="rotate(34 141.5 98.5)" />
-        <rect x="117" y="106" width="13" height="15" rx="1.5" transform="rotate(58 123.5 113.5)" />
-        <rect x="94" y="113" width="13" height="15" rx="1.5" transform="rotate(82 100.5 120.5)" />
+      {/* 1. BLUE INDUSTRIAL GEAR (Back Layer) */}
+      <g id="gear-emblem" fill="#275ba4">
+        {/* Outer Circular Gear Rim */}
+        <circle cx="106" cy="70" r="44" />
 
-        {/* Outer Gear Body Arc */}
-        <path
-          d="M 104 32
-             A 39 39 0 0 1 143 71
-             A 39 39 0 0 1 104 110
-             L 104 95
-             A 24 24 0 0 0 128 71
-             A 24 24 0 0 0 104 47
-             Z"
-        />
-
-        {/* 6 Perforated White Rivet Holes in Gear Body */}
-        <circle cx="132" cy="45" r="2.8" fill="#ffffff" />
-        <circle cx="137" cy="61" r="2.8" fill="#ffffff" />
-        <circle cx="135" cy="78" r="2.8" fill="#ffffff" />
-        <circle cx="127" cy="93" r="2.8" fill="#ffffff" />
-        <circle cx="114" cy="103" r="2.8" fill="#ffffff" />
-        <circle cx="98" cy="106" r="2.8" fill="#ffffff" />
+        {/* 5 Concentric Gear Teeth rotated radially around center (106, 70) */}
+        <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(-32 106 70)" />
+        <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(-8 106 70)" />
+        <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(16 106 70)" />
+        <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(40 106 70)" />
+        <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(64 106 70)" />
       </g>
 
-      {/* 2. Deep Crimson Red Letter 'L' */}
+      {/* 2. RED EMBLEM (L, V, & Medallion) */}
+      {/* Red Letter 'L' */}
       <path
-        d="M 4 12
-           H 32
-           V 94
-           H 56
-           V 122
-           H 4
-           Z"
-        fill="#a81c24"
-      />
-
-      {/* 3. Deep Crimson Red Letter 'V' */}
-      {/* Left diagonal arm */}
-      <path
-        d="M 36 12
+        d="M 12 16
+           H 36
+           V 98
            H 64
-           L 76 76
-           L 66 122
-           L 52 122
+           V 124
+           H 12
            Z"
-        fill="#a81c24"
+        fill="#b0212b"
       />
 
-      {/* Right Arm of V with integrated circular medallion */}
-      <path
-        d="M 66 122
-           L 76 76
-           C 76 50, 94 36, 114 36
-           C 127 36, 135 45, 135 55
-           C 135 69, 126 83, 112 91
-           L 128 12
-           H 104
-           L 94 48
-           C 86 54, 82 64, 82 74
-           Z"
-        fill="#a81c24"
-      />
-
-      {/* 4. Pure White Lightning Bolt Cutout */}
+      {/* Red Letter 'V' Left Diagonal Arm */}
       <polygon
-        points="114,43 103,66 116,64 96,98 108,74 97,76"
+        points="38,16 62,16 88,124 64,124"
+        fill="#b0212b"
+      />
+
+      {/* Red Circular Medallion */}
+      <circle cx="106" cy="70" r="35" fill="#b0212b" />
+
+      {/* Red Letter 'V' Right Diagonal Arm */}
+      <polygon
+        points="64,124 88,124 140,16 116,16"
+        fill="#b0212b"
+      />
+
+      {/* 3. PROMINENT WHITE LIGHTNING BOLT - IN FRONT OF ALL ELEMENTS */}
+      <polygon
+        id="front-lightning-bolt"
+        points="122,26 94,68 116,65 82,108 104,73 90,76"
         fill="#ffffff"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        strokeLinejoin="miter"
       />
     </svg>
   );
@@ -142,7 +118,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
     >
       {/* Complete Official Vector Logo: Emblem + Wordmark + Terminal Underline */}
       <svg
-        viewBox="0 0 520 145"
+        viewBox="0 0 535 140"
         className={`${logoHeights[size]} w-auto max-w-full transition-transform duration-200 group-hover:opacity-95`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -150,126 +126,106 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
         <defs>
           <style>
             {`
-              .lv-brand-black {
-                font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+              .lv-brand-title {
+                font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+                font-weight: 900;
+                font-size: 34px;
+                fill: #1f2328;
+                letter-spacing: 0.04em;
+              }
+              .lv-brand-eng {
+                font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
                 font-weight: 900;
                 font-size: 32px;
-                fill: #111827;
-                letter-spacing: 0.035em;
-              }
-              .lv-brand-red {
-                font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                font-weight: 900;
-                font-size: 32px;
-                fill: #a81c24;
-                letter-spacing: 0.035em;
-              }
-              .lv-brand-blue {
-                font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                font-weight: 900;
-                font-size: 26.5px;
-                fill: #1e73be;
-                letter-spacing: 0.138em;
+                fill: #275ba4;
               }
             `}
           </style>
         </defs>
 
         {/* ==================== LEFT: EMBLEM MARK ==================== */}
-        <g id="emblem-group" transform="translate(6, 6)">
-          {/* Blue Industrial Gear */}
-          <g id="gear-mesh" fill="#1e73be">
-            <rect x="133" y="30" width="13" height="15" rx="1.5" transform="rotate(-38 139.5 37.5)" />
-            <rect x="144" y="50" width="13" height="15" rx="1.5" transform="rotate(-14 150.5 57.5)" />
-            <rect x="144" y="71" width="13" height="15" rx="1.5" transform="rotate(10 150.5 78.5)" />
-            <rect x="135" y="91" width="13" height="15" rx="1.5" transform="rotate(34 141.5 98.5)" />
-            <rect x="117" y="106" width="13" height="15" rx="1.5" transform="rotate(58 123.5 113.5)" />
-            <rect x="94" y="113" width="13" height="15" rx="1.5" transform="rotate(82 100.5 120.5)" />
-
-            <path
-              d="M 104 32
-                 A 39 39 0 0 1 143 71
-                 A 39 39 0 0 1 104 110
-                 L 104 95
-                 A 24 24 0 0 0 128 71
-                 A 24 24 0 0 0 104 47
-                 Z"
-            />
-
-            <circle cx="132" cy="45" r="2.8" fill="#ffffff" />
-            <circle cx="137" cy="61" r="2.8" fill="#ffffff" />
-            <circle cx="135" cy="78" r="2.8" fill="#ffffff" />
-            <circle cx="127" cy="93" r="2.8" fill="#ffffff" />
-            <circle cx="114" cy="103" r="2.8" fill="#ffffff" />
-            <circle cx="98" cy="106" r="2.8" fill="#ffffff" />
+        <g id="emblem-group" transform="translate(4, 0)">
+          {/* Blue Industrial Gear with 5 Teeth (Back Layer) */}
+          <g fill="#275ba4">
+            <circle cx="106" cy="70" r="44" />
+            <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(-32 106 70)" />
+            <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(-8 106 70)" />
+            <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(16 106 70)" />
+            <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(40 106 70)" />
+            <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(64 106 70)" />
           </g>
 
-          {/* Deep Crimson Red Letter 'L' */}
+          {/* Red Letter 'L' */}
           <path
-            d="M 4 12
-               H 32
-               V 94
-               H 56
-               V 122
-               H 4
-               Z"
-            fill="#a81c24"
-          />
-
-          {/* Deep Crimson Red Letter 'V' */}
-          <path
-            d="M 36 12
+            d="M 12 16
+               H 36
+               V 98
                H 64
-               L 76 76
-               L 66 122
-               L 52 122
+               V 124
+               H 12
                Z"
-            fill="#a81c24"
+            fill="#b0212b"
           />
 
-          <path
-            d="M 66 122
-               L 76 76
-               C 76 50, 94 36, 114 36
-               C 127 36, 135 45, 135 55
-               C 135 69, 126 83, 112 91
-               L 128 12
-               H 104
-               L 94 48
-               C 86 54, 82 64, 82 74
-               Z"
-            fill="#a81c24"
-          />
-
-          {/* White Lightning Bolt Cutout */}
+          {/* Red Letter 'V' Left Arm */}
           <polygon
-            points="114,43 103,66 116,64 96,98 108,74 97,76"
+            points="38,16 62,16 88,124 64,124"
+            fill="#b0212b"
+          />
+
+          {/* Red Circular Medallion */}
+          <circle cx="106" cy="70" r="35" fill="#b0212b" />
+
+          {/* Red Letter 'V' Right Arm */}
+          <polygon
+            points="64,124 88,124 140,16 116,16"
+            fill="#b0212b"
+          />
+
+          {/* PROMINENT WHITE LIGHTNING BOLT - IN FRONT OF ALL ELEMENTS */}
+          <polygon
+            id="front-lightning-bolt"
+            points="122,26 94,68 116,65 82,108 104,73 90,76"
             fill="#ffffff"
+            stroke="#ffffff"
+            strokeWidth="1.5"
+            strokeLinejoin="miter"
           />
         </g>
 
         {/* ==================== RIGHT: WORDMARK LOCKUP ==================== */}
-        <g id="wordmark-group" transform="translate(182, 14)">
-          {/* Line 1: LOW VOLTAGE */}
-          <text x="0" y="44">
-            <tspan className="lv-brand-black">LOW </tspan>
-            <tspan className="lv-brand-red">VOLTAGE</tspan>
+        <g id="wordmark-group" transform="translate(178, 16)">
+          {/* Line 1: LOW VOLTAGE - All Dark Charcoal / Black (#1f2328) */}
+          <text
+            x="0"
+            y="38"
+            className="lv-brand-title"
+          >
+            LOW VOLTAGE
           </text>
 
-          {/* Line 2: ENGINEERING */}
-          <text x="0" y="80" className="lv-brand-blue">
+          {/* Line 2: ENGINEERING - Royal Blue (#275ba4) */}
+          <text
+            x="0"
+            y="76"
+            textLength="330"
+            lengthAdjust="spacing"
+            className="lv-brand-eng"
+          >
             ENGINEERING
           </text>
 
-          {/* Line 3: Signature Red Rule with Terminal Square Box */}
-          <g id="terminal-bar-group" transform="translate(0, 93)">
-            <line x1="0" y1="5" x2="278" y2="5" stroke="#a81c24" strokeWidth="3.5" strokeLinecap="square" />
-            <rect x="274" y="0" width="10" height="10" fill="#a81c24" rx="0.5" />
+          {/* Line 3: Signature Red Rule with Terminal Square Box (#b0212b) */}
+          <g id="terminal-bar-group" transform="translate(0, 91)">
+            {/* Red horizontal rule */}
+            <line x1="0" y1="6" x2="314" y2="6" stroke="#b0212b" strokeWidth="4.5" strokeLinecap="round" />
+            {/* Solid red terminal square block at right end */}
+            <rect x="314" y="-1.5" width="16" height="16" fill="#b0212b" rx="2" />
           </g>
         </g>
       </svg>
 
-      {/* Optional Tagline (if explicitly requested via showTagline) */}
+      {/* Optional Tagline */}
       {showTagline && (
         <span className="font-mono text-[10px] text-slate-500 uppercase tracking-wider pl-[4.75rem] -mt-1">
           Turning Concepts into Engineering Marvels

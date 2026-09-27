@@ -5,13 +5,7 @@ import {
   ChevronDown,
   ArrowRight,
   Search,
-  Zap,
   Sun,
-  ShieldCheck,
-  Building2,
-  FolderGit2,
-  PhoneCall,
-  Sparkles,
 } from 'lucide-react';
 import { SOLUTIONS } from '../data/companyData';
 import { LVBrandLogo } from './LVBrandLogo';
@@ -34,6 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Handle subtle elevation on scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 15);
@@ -111,13 +106,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             : 'bg-white/90 backdrop-blur-sm border-b border-slate-200/80 shadow-xs'
         }`}
       >
-        {/* Top Precision Accent Gradient Line (Engineering Red to Industrial Blue) */}
-        <div className="h-[2.5px] w-full bg-gradient-to-r from-[#a81c24] via-[#a81c24] to-[#1e73be]" />
+        {/* Top Precision Accent Gradient Line (Deep Red #a32429 to Industrial Blue #2b5b92) */}
+        <div className="h-[2.5px] w-full bg-gradient-to-r from-[#a32429] via-[#a32429] to-[#2b5b92]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-[72px]">
             
-            {/* Brand Logo - Recreated Exact Official Lockup */}
+            {/* Left: Brand Identity Logo (Scales smoothly on mobile, tablet, desktop) */}
             <div className="flex-shrink-0 flex items-center">
               <LVBrandLogo
                 size="md"
@@ -127,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               />
             </div>
 
-            {/* Desktop Navigation Links - Attractive, High-Readability Fonts */}
+            {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
               
               {/* Home */}
@@ -135,25 +130,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleLinkClick('/')}
                 className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
                   currentPath === '/'
-                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
-                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                    ? 'text-[#a32429] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-[#22252a] hover:text-[#2b5b92] hover:bg-slate-100/80'
                 }`}
                 id="nav-link-home"
               >
                 Home
               </button>
 
-              {/* About */}
+              {/* About Us */}
               <button
                 onClick={() => handleLinkClick('/about')}
                 className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
                   currentPath.startsWith('/about')
-                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
-                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                    ? 'text-[#a32429] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-[#22252a] hover:text-[#2b5b92] hover:bg-slate-100/80'
                 }`}
                 id="nav-link-about"
               >
-                About
+                About Us
               </button>
 
               {/* Solutions Dropdown */}
@@ -166,15 +161,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => handleLinkClick('/solutions')}
                   className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all flex items-center gap-1.5 rounded-xl ${
                     currentPath.startsWith('/solutions')
-                      ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
-                      : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                      ? 'text-[#a32429] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                      : 'text-[#22252a] hover:text-[#2b5b92] hover:bg-slate-100/80'
                   }`}
                   id="nav-solutions-dropdown"
                 >
                   <span>Solutions</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-500 ${
-                      solutionsOpen ? 'rotate-180 text-[#1e73be]' : ''
+                      solutionsOpen ? 'rotate-180 text-[#2b5b92]' : ''
                     }`}
                   />
                 </button>
@@ -185,14 +180,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <div className="rounded-2xl p-5 shadow-2xl border border-slate-200 bg-white/98 backdrop-blur-xl">
                       <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
                         <div className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-[#a81c24] animate-pulse" />
-                          <span className="text-xs font-mono tracking-widest text-[#a81c24] uppercase font-bold">
+                          <span className="w-2 h-2 rounded-full bg-[#a32429] animate-pulse" />
+                          <span className="text-xs font-mono tracking-widest text-[#a32429] uppercase font-bold">
                             Engineered Solutions Catalog &bull; 12 Disciplines
                           </span>
                         </div>
                         <button
                           onClick={() => handleLinkClick('/solutions')}
-                          className="text-xs font-mono text-[#1e73be] hover:underline flex items-center gap-1 font-bold"
+                          className="text-xs font-mono text-[#2b5b92] hover:underline flex items-center gap-1 font-bold"
                         >
                           <span>View Full Catalog</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -207,16 +202,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                             className="text-left p-2.5 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all group/item"
                           >
                             <div className="flex items-center justify-between mb-1">
-                              <span className="text-[10px] font-mono text-slate-500 group-hover/item:text-[#1e73be] uppercase tracking-wider font-semibold">
+                              <span className="text-[10px] font-mono text-slate-500 group-hover/item:text-[#2b5b92] uppercase tracking-wider font-semibold">
                                 {item.category}
                               </span>
                               {item.partnerBrand && (
-                                <span className="text-[9px] font-mono bg-blue-50 text-[#1e73be] border border-blue-200 px-1 rounded font-semibold truncate max-w-[90px]">
+                                <span className="text-[9px] font-mono bg-blue-50 text-[#2b5b92] border border-blue-200 px-1 rounded font-semibold truncate max-w-[90px]">
                                   {item.partnerBrand}
                                 </span>
                               )}
                             </div>
-                            <p className="text-xs font-bold text-slate-900 group-hover/item:text-[#a81c24] line-clamp-1">
+                            <p className="text-xs font-bold text-slate-900 group-hover/item:text-[#a32429] line-clamp-1">
                               {item.title}
                             </p>
                           </button>
@@ -237,15 +232,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => handleLinkClick('/services')}
                   className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all flex items-center gap-1.5 rounded-xl ${
                     currentPath.startsWith('/services')
-                      ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
-                      : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                      ? 'text-[#a32429] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                      : 'text-[#22252a] hover:text-[#2b5b92] hover:bg-slate-100/80'
                   }`}
                   id="nav-services-dropdown"
                 >
                   <span>Services</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-500 ${
-                      servicesOpen ? 'rotate-180 text-[#1e73be]' : ''
+                      servicesOpen ? 'rotate-180 text-[#2b5b92]' : ''
                     }`}
                   />
                 </button>
@@ -255,12 +250,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <div className="absolute top-full left-0 w-[440px] pt-2 z-50">
                     <div className="rounded-2xl p-4 shadow-2xl border border-slate-200 bg-white/98 backdrop-blur-xl">
                       <div className="border-b border-slate-100 pb-2 mb-2 flex items-center justify-between">
-                        <span className="text-[11px] font-mono text-[#a81c24] uppercase font-bold tracking-wider">
+                        <span className="text-[11px] font-mono text-[#a32429] uppercase font-bold tracking-wider">
                           21 Certified Electrical Services
                         </span>
                         <button
                           onClick={() => handleLinkClick('/services')}
-                          className="text-[11px] font-mono text-[#1e73be] hover:underline font-semibold"
+                          className="text-[11px] font-mono text-[#2b5b92] hover:underline font-semibold"
                         >
                           Explore All Services Grid →
                         </button>
@@ -272,7 +267,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             onClick={() => handleLinkClick('/services')}
                             className="w-full text-left p-2 rounded-xl hover:bg-slate-50 transition-colors block group"
                           >
-                            <span className="text-xs font-bold text-slate-900 group-hover:text-[#1e73be] block">
+                            <span className="text-xs font-bold text-slate-900 group-hover:text-[#2b5b92] block">
                               {s.label}
                             </span>
                             <span className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
@@ -292,7 +287,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl flex items-center gap-1.5 ${
                   currentPath.startsWith('/solar')
                     ? 'text-amber-600 bg-amber-50/90 font-bold border border-amber-200/60 shadow-xs'
-                    : 'text-slate-800 hover:text-amber-600 hover:bg-amber-50/50'
+                    : 'text-[#22252a] hover:text-amber-600 hover:bg-amber-50/50'
                 }`}
                 id="nav-link-solar"
               >
@@ -305,8 +300,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleLinkClick('/projects')}
                 className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
                   currentPath.startsWith('/projects')
-                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
-                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                    ? 'text-[#a32429] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-[#22252a] hover:text-[#2b5b92] hover:bg-slate-100/80'
                 }`}
                 id="nav-link-projects"
               >
@@ -318,8 +313,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleLinkClick('/contact')}
                 className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
                   currentPath.startsWith('/contact')
-                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
-                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                    ? 'text-[#a32429] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-[#22252a] hover:text-[#2b5b92] hover:bg-slate-100/80'
                 }`}
                 id="nav-link-contact"
               >
@@ -333,7 +328,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Quick Search Toggle */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="p-2 text-slate-700 hover:text-[#1e73be] hover:bg-slate-100 rounded-xl transition-colors border border-slate-200 shadow-xs"
+                className="p-2 text-slate-700 hover:text-[#2b5b92] hover:bg-slate-100 rounded-xl transition-colors border border-slate-200 shadow-xs"
                 title="Search Solutions, Partners & Equipment"
                 id="header-search-btn"
                 aria-label="Search"
@@ -341,10 +336,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <Search className="w-4 h-4" />
               </button>
 
-              {/* Attractive High-Impact "Get a Quote" Button */}
+              {/* Primary Call-to-Action: "Get a Quote" */}
               <button
                 onClick={() => onRequestConsultation()}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold tracking-wider uppercase font-mono bg-gradient-to-r from-[#a81c24] via-[#b91c26] to-[#a81c24] hover:from-[#92141c] hover:to-[#a81c24] text-white rounded-full shadow-md hover:shadow-lg hover:shadow-red-600/25 active:scale-95 transition-all border border-red-600/40"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold tracking-wider uppercase font-mono bg-gradient-to-r from-[#a32429] via-[#b6262d] to-[#a32429] hover:from-[#8e1c21] hover:to-[#a32429] text-white rounded-full shadow-md hover:shadow-lg hover:shadow-red-600/25 active:scale-95 transition-all border border-red-600/40"
                 id="nav-consultation-btn"
               >
                 <span>Get a Quote</span>
@@ -358,7 +353,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 aria-label="Toggle Menu"
                 id="mobile-menu-toggle"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6 text-slate-900" /> : <Menu className="w-6 h-6 text-[#a81c24]" />}
+                {mobileMenuOpen ? <X className="w-6 h-6 text-slate-900" /> : <Menu className="w-6 h-6 text-[#a32429]" />}
               </button>
 
             </div>
@@ -373,10 +368,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="bg-white border border-slate-200 w-full max-w-2xl rounded-3xl p-6 shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
               <div className="flex items-center gap-3 flex-1">
-                <Search className="w-5 h-5 text-[#1e73be]" />
+                <Search className="w-5 h-5 text-[#2b5b92]" />
                 <input
                   type="text"
-                  placeholder="Search solutions, systems (e.g. SCADA, Starkgen, Bristol, Forend, Hakel, Solar)..."
+                  placeholder="Search solutions, systems (e.g. Switchgear, SCADA, Cables, Solar, DVR)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
@@ -409,21 +404,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                   >
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-[#1e73be] font-bold">{item.category}</span>
+                        <span className="text-xs font-mono text-[#2b5b92] font-bold">{item.category}</span>
                         {item.partnerBrand && (
                           <span className="text-[10px] font-mono text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded font-medium">
                             {item.partnerBrand}
                           </span>
                         )}
                       </div>
-                      <h5 className="text-sm font-bold text-slate-900 group-hover:text-[#a81c24] transition-colors">
+                      <h5 className="text-sm font-bold text-slate-900 group-hover:text-[#a32429] transition-colors">
                         {item.title}
                       </h5>
                       <p className="text-xs text-slate-600 line-clamp-1 mt-0.5">
                         {item.headline}
                       </p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#a81c24] group-hover:translate-x-1 transition-all flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#a32429] group-hover:translate-x-1 transition-all flex-shrink-0" />
                   </button>
                 ))
               )}
@@ -443,7 +438,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => handleLinkClick('/')}
               className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
-                currentPath === '/' ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                currentPath === '/' ? 'text-[#a32429] bg-red-50/80 font-bold' : 'text-[#22252a] hover:bg-slate-50'
               }`}
             >
               <span>Home</span>
@@ -452,7 +447,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => handleLinkClick('/about')}
               className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
-                currentPath.startsWith('/about') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                currentPath.startsWith('/about') ? 'text-[#a32429] bg-red-50/80 font-bold' : 'text-[#22252a] hover:bg-slate-50'
               }`}
             >
               <span>About Us</span>
@@ -461,7 +456,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => handleLinkClick('/solutions')}
               className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
-                currentPath.startsWith('/solutions') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                currentPath.startsWith('/solutions') ? 'text-[#a32429] bg-red-50/80 font-bold' : 'text-[#22252a] hover:bg-slate-50'
               }`}
             >
               <span>Solutions Catalog (12 Disciplines)</span>
@@ -470,7 +465,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => handleLinkClick('/services')}
               className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
-                currentPath.startsWith('/services') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                currentPath.startsWith('/services') ? 'text-[#a32429] bg-red-50/80 font-bold' : 'text-[#22252a] hover:bg-slate-50'
               }`}
             >
               <span>Electrical Services (21 Solutions)</span>
@@ -479,7 +474,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => handleLinkClick('/solar')}
               className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
-                currentPath.startsWith('/solar') ? 'text-amber-600 bg-amber-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                currentPath.startsWith('/solar') ? 'text-amber-600 bg-amber-50/80 font-bold' : 'text-[#22252a] hover:bg-slate-50'
               }`}
             >
               <span className="flex items-center gap-2">
@@ -491,7 +486,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => handleLinkClick('/projects')}
               className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
-                currentPath.startsWith('/projects') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                currentPath.startsWith('/projects') ? 'text-[#a32429] bg-red-50/80 font-bold' : 'text-[#22252a] hover:bg-slate-50'
               }`}
             >
               <span>Verified Projects Portfolio</span>
@@ -500,7 +495,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => handleLinkClick('/contact')}
               className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
-                currentPath.startsWith('/contact') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                currentPath.startsWith('/contact') ? 'text-[#a32429] bg-red-50/80 font-bold' : 'text-[#22252a] hover:bg-slate-50'
               }`}
             >
               <span>Contact Regional Offices</span>
@@ -515,7 +510,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onRequestConsultation();
               }}
-              className="w-full py-3.5 bg-gradient-to-r from-[#a81c24] via-[#b91c26] to-[#a81c24] text-white font-bold font-mono tracking-wider uppercase text-xs rounded-full shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-gradient-to-r from-[#a32429] via-[#b6262d] to-[#a32429] text-white font-bold font-mono tracking-wider uppercase text-xs rounded-full shadow-md flex items-center justify-center gap-2"
             >
               <span>Request Consultation / Quote</span>
               <ArrowRight className="w-4 h-4" />
