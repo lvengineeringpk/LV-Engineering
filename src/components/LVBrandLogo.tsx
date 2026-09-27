@@ -39,7 +39,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* 1. BLUE INDUSTRIAL GEAR (Back Layer) */}
+      {/* 1. LAYER 1 (BASE/BACK): BLUE INDUSTRIAL GEAR */}
       <g id="gear-emblem" fill="#275ba4">
         {/* Outer Circular Gear Rim */}
         <circle cx="106" cy="70" r="44" />
@@ -52,8 +52,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
         <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(64 106 70)" />
       </g>
 
-      {/* 2. RED EMBLEM (L, V, & Medallion) */}
-      {/* Red Letter 'L' */}
+      {/* 2. LAYER 2 (MIDDLE): RED LETTER 'L' */}
       <path
         d="M 12 16
            H 36
@@ -65,28 +64,28 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
         fill="#b0212b"
       />
 
-      {/* Red Letter 'V' Left Diagonal Arm */}
+      {/* 3. LAYER 3 (MIDDLE): RED LETTER 'V' LEFT ARM */}
       <polygon
         points="38,16 62,16 88,124 64,124"
         fill="#b0212b"
       />
 
-      {/* Red Circular Medallion */}
+      {/* 4. LAYER 4 (MIDDLE): RED CIRCULAR MEDALLION */}
       <circle cx="106" cy="70" r="35" fill="#b0212b" />
 
-      {/* Red Letter 'V' Right Diagonal Arm */}
+      {/* 5. LAYER 5 (MIDDLE): RED LETTER 'V' RIGHT ARM */}
       <polygon
         points="64,124 88,124 140,16 116,16"
         fill="#b0212b"
       />
 
-      {/* 3. PROMINENT WHITE LIGHTNING BOLT - IN FRONT OF ALL ELEMENTS */}
+      {/* 6. LAYER 6 (FRONT OF ALL LAYERS): BOLD, PROMINENT WHITE LIGHTNING BOLT (⚡) */}
       <polygon
-        id="front-lightning-bolt"
-        points="122,26 94,68 116,65 82,108 104,73 90,76"
+        id="prominent-white-lightning-bolt"
+        points="118,36 90,70 112,70 82,104 130,62 108,62"
         fill="#ffffff"
         stroke="#ffffff"
-        strokeWidth="1.5"
+        strokeWidth="1.2"
         strokeLinejoin="miter"
       />
     </svg>
@@ -145,7 +144,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
 
         {/* ==================== LEFT: EMBLEM MARK ==================== */}
         <g id="emblem-group" transform="translate(4, 0)">
-          {/* Blue Industrial Gear with 5 Teeth (Back Layer) */}
+          {/* Layer 1 (Back): Blue Industrial Gear with 5 Radial Teeth */}
           <g fill="#275ba4">
             <circle cx="106" cy="70" r="44" />
             <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(-32 106 70)" />
@@ -155,7 +154,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
             <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(64 106 70)" />
           </g>
 
-          {/* Red Letter 'L' */}
+          {/* Layer 2: Red Letter 'L' */}
           <path
             d="M 12 16
                H 36
@@ -167,28 +166,28 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
             fill="#b0212b"
           />
 
-          {/* Red Letter 'V' Left Arm */}
+          {/* Layer 3: Red Letter 'V' Left Arm */}
           <polygon
             points="38,16 62,16 88,124 64,124"
             fill="#b0212b"
           />
 
-          {/* Red Circular Medallion */}
+          {/* Layer 4: Red Circular Medallion */}
           <circle cx="106" cy="70" r="35" fill="#b0212b" />
 
-          {/* Red Letter 'V' Right Arm */}
+          {/* Layer 5: Red Letter 'V' Right Arm */}
           <polygon
             points="64,124 88,124 140,16 116,16"
             fill="#b0212b"
           />
 
-          {/* PROMINENT WHITE LIGHTNING BOLT - IN FRONT OF ALL ELEMENTS */}
+          {/* Layer 6 (FRONT OF ALL LAYERS): BOLD, PROMINENT WHITE LIGHTNING BOLT (⚡) */}
           <polygon
-            id="front-lightning-bolt"
-            points="122,26 94,68 116,65 82,108 104,73 90,76"
+            id="prominent-white-lightning-bolt"
+            points="118,36 90,70 112,70 82,104 130,62 108,62"
             fill="#ffffff"
             stroke="#ffffff"
-            strokeWidth="1.5"
+            strokeWidth="1.2"
             strokeLinejoin="miter"
           />
         </g>

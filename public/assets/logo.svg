@@ -19,7 +19,7 @@
 
   <!-- ==================== LEFT: EMBLEM MARK ==================== -->
   <g id="lv-emblem" transform="translate(4, 0)">
-    <!-- 1. Blue Industrial Gear (#275ba4) with 5 Concentric Teeth (Back Layer) -->
+    <!-- Layer 1 (Back): Blue Industrial Gear (#275ba4) with 5 Concentric Teeth -->
     <g fill="#275ba4">
       <circle cx="106" cy="70" r="44" />
       <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(-32 106 70)" />
@@ -29,7 +29,7 @@
       <rect x="144" y="62" width="17" height="16" rx="2" transform="rotate(64 106 70)" />
     </g>
 
-    <!-- 2. Red Letter 'L' (#b0212b) -->
+    <!-- Layer 2: Red Letter 'L' (#b0212b) -->
     <path
       d="M 12 16
          H 36
@@ -41,28 +41,28 @@
       fill="#b0212b"
     />
 
-    <!-- 3. Red Letter 'V' Left Arm (#b0212b) -->
+    <!-- Layer 3: Red Letter 'V' Left Arm (#b0212b) -->
     <polygon
       points="38,16 62,16 88,124 64,124"
       fill="#b0212b"
     />
 
-    <!-- 4. Red Circular Medallion (#b0212b) -->
+    <!-- Layer 4: Red Circular Medallion (#b0212b) -->
     <circle cx="106" cy="70" r="35" fill="#b0212b" />
 
-    <!-- 5. Red Letter 'V' Right Arm (#b0212b) -->
+    <!-- Layer 5: Red Letter 'V' Right Arm (#b0212b) -->
     <polygon
       points="64,124 88,124 140,16 116,16"
       fill="#b0212b"
     />
 
-    <!-- 6. PROMINENT WHITE LIGHTNING BOLT - IN FRONT OF ALL ELEMENTS -->
+    <!-- Layer 6 (FRONT OF ALL LAYERS): BOLD, PROMINENT WHITE LIGHTNING BOLT (⚡) -->
     <polygon
-      id="front-lightning-bolt"
-      points="122,26 94,68 116,65 82,108 104,73 90,76"
+      id="prominent-white-lightning-bolt"
+      points="118,36 90,70 112,70 82,104 130,62 108,62"
       fill="#ffffff"
       stroke="#ffffff"
-      stroke-width="1.5"
+      stroke-width="1.2"
       stroke-linejoin="miter"
     />
   </g>
