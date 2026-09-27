@@ -18,14 +18,14 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
   // Height sizing according to size prop
   const logoHeights = {
     sm: 'h-8 sm:h-9',
-    md: 'h-10 sm:h-12',
+    md: 'h-11 sm:h-12',
     lg: 'h-14 sm:h-16',
     xl: 'h-20 sm:h-24',
   };
 
   const iconSizes = {
     sm: 'w-8 h-7',
-    md: 'w-11 h-9',
+    md: 'w-12 h-10',
     lg: 'w-16 h-14',
     xl: 'w-24 h-20',
   };
@@ -78,7 +78,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
            V 122
            H 4
            Z"
-        fill="#ad1c24"
+        fill="#a81c24"
       />
 
       {/* 3. Deep Crimson Red Letter 'V' */}
@@ -90,7 +90,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
            L 66 122
            L 52 122
            Z"
-        fill="#ad1c24"
+        fill="#a81c24"
       />
 
       {/* Right Arm of V with integrated circular medallion */}
@@ -105,7 +105,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
            L 94 48
            C 86 54, 82 64, 82 74
            Z"
-        fill="#ad1c24"
+        fill="#a81c24"
       />
 
       {/* 4. Pure White Lightning Bolt Cutout */}
@@ -151,25 +151,25 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
           <style>
             {`
               .lv-brand-black {
-                font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
                 font-weight: 900;
-                font-size: 32.5px;
+                font-size: 32px;
                 fill: #111827;
-                letter-spacing: 0.04em;
+                letter-spacing: 0.035em;
               }
               .lv-brand-red {
-                font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
                 font-weight: 900;
-                font-size: 32.5px;
-                fill: #ad1c24;
-                letter-spacing: 0.04em;
+                font-size: 32px;
+                fill: #a81c24;
+                letter-spacing: 0.035em;
               }
               .lv-brand-blue {
-                font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
                 font-weight: 900;
                 font-size: 26.5px;
                 fill: #1e73be;
-                letter-spacing: 0.13em;
+                letter-spacing: 0.138em;
               }
             `}
           </style>
@@ -213,7 +213,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
                V 122
                H 4
                Z"
-            fill="#ad1c24"
+            fill="#a81c24"
           />
 
           {/* Deep Crimson Red Letter 'V' */}
@@ -224,7 +224,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
                L 66 122
                L 52 122
                Z"
-            fill="#ad1c24"
+            fill="#a81c24"
           />
 
           <path
@@ -238,7 +238,7 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
                L 94 48
                C 86 54, 82 64, 82 74
                Z"
-            fill="#ad1c24"
+            fill="#a81c24"
           />
 
           {/* White Lightning Bolt Cutout */}
@@ -263,8 +263,8 @@ export const LVBrandLogo: React.FC<LVBrandLogoProps> = ({
 
           {/* Line 3: Signature Red Rule with Terminal Square Box */}
           <g id="terminal-bar-group" transform="translate(0, 93)">
-            <line x1="0" y1="5" x2="278" y2="5" stroke="#ad1c24" strokeWidth="3.5" strokeLinecap="square" />
-            <rect x="274" y="0" width="10" height="10" fill="#ad1c24" rx="0.5" />
+            <line x1="0" y1="5" x2="278" y2="5" stroke="#a81c24" strokeWidth="3.5" strokeLinecap="square" />
+            <rect x="274" y="0" width="10" height="10" fill="#a81c24" rx="0.5" />
           </g>
         </g>
       </svg>

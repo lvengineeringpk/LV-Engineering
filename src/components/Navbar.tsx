@@ -4,14 +4,16 @@ import {
   X,
   ChevronDown,
   ArrowRight,
-  Shield,
   Search,
   Zap,
-  Sliders,
   Sun,
   ShieldCheck,
+  Building2,
+  FolderGit2,
+  PhoneCall,
+  Sparkles,
 } from 'lucide-react';
-import { COMPANY_INFO, SOLUTIONS } from '../data/companyData';
+import { SOLUTIONS } from '../data/companyData';
 import { LVBrandLogo } from './LVBrandLogo';
 
 interface NavbarProps {
@@ -34,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -42,14 +44,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Defined services for the Services dropdown
   const servicesDropdownItems = [
-    { label: 'Electrical Services & Infrastructure', slug: 'electrical', desc: 'L.T. Panels, Cable Trays, MCC Panels & Wiring' },
-    { label: 'Automation & Instrumentation', slug: 'automation', desc: 'Custom PLC Panels, Process Telemetry & RTU' },
-    { label: 'PLC / SCADA Integration', slug: 'automation', desc: 'Centralized Supervisory Control & Batch Logic' },
-    { label: 'Cabling, Glanding & Termination', slug: 'electrical', desc: 'High Ampacity Heavy Cabling & Megger Testing' },
-    { label: 'Energy Monitoring Systems', slug: 'automation', desc: 'Class-A Power Quality & Real-Time Dashboards' },
-    { label: 'Panels & Distribution (L.T / MCC / DBs)', slug: 'switchgear', desc: 'Form 4b Switchboards & Motor Control Tiers' },
-    { label: 'UPS & Voltage Regulation (AVR/DVR)', slug: 'electrical', desc: 'Dynamic Voltage Restorers & Industrial Power Stability' },
-    { label: 'Solar Structure & PV Installation', slug: 'solar-energy', desc: 'Turnkey Galvanized Mounting & DC/AC Integration' },
+    { label: 'Low Tension (L.T.) Switchboards & Panels', slug: 'switchgear', desc: 'Form 4b Segregated Switchboards, DBs & ATS Panels' },
+    { label: 'Motor Control Centers (MCC) & VFDs', slug: 'switchgear', desc: 'Custom Variable Frequency Drives & Soft Starters' },
+    { label: 'High-Ampacity Heavy Cabling & Trays', slug: 'electrical', desc: 'Cable Tray Ladders, Glanding & Termination' },
+    { label: 'Testing, Commissioning & Meggering', slug: 'electrical', desc: 'Insulation Resistance, Earth Pits & Relay Calibration' },
+    { label: 'Industrial Automation & SCADA Control', slug: 'automation', desc: 'PLC Panels, Process Telemetry & Central HMI' },
+    { label: 'Dynamic Voltage Regulation (DVR / UPS)', slug: 'electrical', desc: 'Dynamic Voltage Restorers & Industrial Power Stability' },
+    { label: 'Solar Structure & PV Grid Integration', slug: 'solar-energy', desc: 'Turnkey Commercial & Industrial Solar EPC' },
+    { label: 'Power Quality & Harmonic Plant Audits', slug: 'automation', desc: 'Class-A Power Profiling & Dynamic Factor Correction' },
   ];
 
   const filteredSolutions = searchQuery.trim()
@@ -105,31 +107,36 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md py-2.5 border-b border-slate-200 shadow-sm'
-            : 'bg-white/90 backdrop-blur-sm py-3.5 border-b border-slate-200/80'
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm'
+            : 'bg-white/90 backdrop-blur-sm border-b border-slate-200/80 shadow-xs'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            
-            {/* Brand Logo */}
-            <LVBrandLogo
-              size="md"
-              showTagline={false}
-              onClick={() => handleLinkClick('/')}
-              className="py-1 cursor-pointer"
-            />
+        {/* Top Precision Accent Gradient Line (Engineering Red to Industrial Blue) */}
+        <div className="h-[2.5px] w-full bg-gradient-to-r from-[#a81c24] via-[#a81c24] to-[#1e73be]" />
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-0.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-[72px]">
+            
+            {/* Brand Logo - Recreated Exact Official Lockup */}
+            <div className="flex-shrink-0 flex items-center">
+              <LVBrandLogo
+                size="md"
+                showTagline={false}
+                onClick={() => handleLinkClick('/')}
+                className="cursor-pointer transition-transform hover:opacity-95"
+              />
+            </div>
+
+            {/* Desktop Navigation Links - Attractive, High-Readability Fonts */}
+            <nav className="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
               
               {/* Home */}
               <button
                 onClick={() => handleLinkClick('/')}
-                className={`px-3 py-2 text-sm font-semibold transition-colors rounded ${
+                className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
                   currentPath === '/'
-                    ? 'text-[#a81c24] bg-red-50/70 font-bold'
-                    : 'text-slate-700 hover:text-[#1e73be] hover:bg-slate-50'
+                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
                 }`}
                 id="nav-link-home"
               >
@@ -139,10 +146,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* About */}
               <button
                 onClick={() => handleLinkClick('/about')}
-                className={`px-3 py-2 text-sm font-semibold transition-colors rounded ${
+                className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
                   currentPath.startsWith('/about')
-                    ? 'text-[#a81c24] bg-red-50/70 font-bold'
-                    : 'text-slate-700 hover:text-[#1e73be] hover:bg-slate-50'
+                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
                 }`}
                 id="nav-link-about"
               >
@@ -157,16 +164,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 <button
                   onClick={() => handleLinkClick('/solutions')}
-                  className={`px-3 py-2 text-sm font-semibold transition-colors flex items-center gap-1 rounded ${
+                  className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all flex items-center gap-1.5 rounded-xl ${
                     currentPath.startsWith('/solutions')
-                      ? 'text-[#a81c24] bg-red-50/70 font-bold'
-                      : 'text-slate-700 hover:text-[#1e73be] hover:bg-slate-50'
+                      ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                      : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
                   }`}
                   id="nav-solutions-dropdown"
                 >
                   <span>Solutions</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-500 ${
                       solutionsOpen ? 'rotate-180 text-[#1e73be]' : ''
                     }`}
                   />
@@ -174,44 +181,42 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Mega Dropdown Menu for Solutions */}
                 {solutionsOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[760px] pt-2 z-50">
-                    <div className="rounded-2xl p-5 shadow-2xl border border-slate-200 bg-white">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[780px] pt-2 z-50">
+                    <div className="rounded-2xl p-5 shadow-2xl border border-slate-200 bg-white/98 backdrop-blur-xl">
                       <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
-                        <div>
-                          <span className="text-[11px] font-mono tracking-widest text-[#a81c24] uppercase font-bold">
-                            Engineered Solutions Catalog
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-[#a81c24] animate-pulse" />
+                          <span className="text-xs font-mono tracking-widest text-[#a81c24] uppercase font-bold">
+                            Engineered Solutions Catalog &bull; 12 Disciplines
                           </span>
-                          <h4 className="text-sm font-bold text-slate-900">
-                            12 Specialized Disciplines & Global Partnerships
-                          </h4>
                         </div>
                         <button
                           onClick={() => handleLinkClick('/solutions')}
                           className="text-xs font-mono text-[#1e73be] hover:underline flex items-center gap-1 font-bold"
                         >
-                          <span>All Solutions</span>
-                          <ArrowRight className="w-3 h-3" />
+                          <span>View Full Catalog</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
 
-                      <div className="grid grid-cols-3 gap-2 max-h-[380px] overflow-y-auto pr-1">
+                      <div className="grid grid-cols-3 gap-2.5 max-h-[380px] overflow-y-auto pr-1">
                         {SOLUTIONS.map((item) => (
                           <button
                             key={item.id}
                             onClick={() => handleSolutionSelect(item.slug)}
-                            className="text-left p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all group/item"
+                            className="text-left p-2.5 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all group/item"
                           >
                             <div className="flex items-center justify-between mb-1">
                               <span className="text-[10px] font-mono text-slate-500 group-hover/item:text-[#1e73be] uppercase tracking-wider font-semibold">
                                 {item.category}
                               </span>
                               {item.partnerBrand && (
-                                <span className="text-[9px] font-mono bg-blue-50 text-[#1e73be] border border-blue-200 px-1 rounded font-semibold">
+                                <span className="text-[9px] font-mono bg-blue-50 text-[#1e73be] border border-blue-200 px-1 rounded font-semibold truncate max-w-[90px]">
                                   {item.partnerBrand}
                                 </span>
                               )}
                             </div>
-                            <p className="text-xs font-semibold text-slate-800 group-hover/item:text-[#a81c24] line-clamp-1">
+                            <p className="text-xs font-bold text-slate-900 group-hover/item:text-[#a81c24] line-clamp-1">
                               {item.title}
                             </p>
                           </button>
@@ -229,13 +234,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onMouseLeave={() => setServicesOpen(false)}
               >
                 <button
-                  onClick={() => handleLinkClick('#services')}
-                  className="px-3 py-2 text-sm font-semibold transition-colors flex items-center gap-1 rounded text-slate-700 hover:text-[#1e73be] hover:bg-slate-50"
+                  onClick={() => handleLinkClick('/services')}
+                  className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all flex items-center gap-1.5 rounded-xl ${
+                    currentPath.startsWith('/services')
+                      ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                      : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                  }`}
                   id="nav-services-dropdown"
                 >
                   <span>Services</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-500 ${
                       servicesOpen ? 'rotate-180 text-[#1e73be]' : ''
                     }`}
                   />
@@ -243,30 +252,30 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Services Dropdown Panel */}
                 {servicesOpen && (
-                  <div className="absolute top-full left-0 w-[420px] pt-2 z-50">
-                    <div className="rounded-2xl p-4 shadow-2xl border border-slate-200 bg-white">
+                  <div className="absolute top-full left-0 w-[440px] pt-2 z-50">
+                    <div className="rounded-2xl p-4 shadow-2xl border border-slate-200 bg-white/98 backdrop-blur-xl">
                       <div className="border-b border-slate-100 pb-2 mb-2 flex items-center justify-between">
                         <span className="text-[11px] font-mono text-[#a81c24] uppercase font-bold tracking-wider">
-                          21 Electrical Services
+                          21 Certified Electrical Services
                         </span>
                         <button
-                          onClick={() => handleLinkClick('#services')}
+                          onClick={() => handleLinkClick('/services')}
                           className="text-[11px] font-mono text-[#1e73be] hover:underline font-semibold"
                         >
-                          Explore Grid
+                          Explore All Services Grid →
                         </button>
                       </div>
                       <div className="space-y-1">
                         {servicesDropdownItems.map((s, idx) => (
                           <button
                             key={idx}
-                            onClick={() => handleLinkClick('#services')}
+                            onClick={() => handleLinkClick('/services')}
                             className="w-full text-left p-2 rounded-xl hover:bg-slate-50 transition-colors block group"
                           >
                             <span className="text-xs font-bold text-slate-900 group-hover:text-[#1e73be] block">
                               {s.label}
                             </span>
-                            <span className="text-[11px] text-slate-500 line-clamp-1">
+                            <span className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
                               {s.desc}
                             </span>
                           </button>
@@ -279,20 +288,38 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Solar */}
               <button
-                onClick={() => handleLinkClick('#solar')}
-                className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-[#1e73be] hover:bg-slate-50 transition-colors rounded"
+                onClick={() => handleLinkClick('/solar')}
+                className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl flex items-center gap-1.5 ${
+                  currentPath.startsWith('/solar')
+                    ? 'text-amber-600 bg-amber-50/90 font-bold border border-amber-200/60 shadow-xs'
+                    : 'text-slate-800 hover:text-amber-600 hover:bg-amber-50/50'
+                }`}
                 id="nav-link-solar"
               >
-                Solar
+                <Sun className="w-3.5 h-3.5 text-amber-500" />
+                <span>Solar</span>
+              </button>
+
+              {/* Projects */}
+              <button
+                onClick={() => handleLinkClick('/projects')}
+                className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
+                  currentPath.startsWith('/projects')
+                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
+                }`}
+                id="nav-link-projects"
+              >
+                Projects
               </button>
 
               {/* Contact */}
               <button
                 onClick={() => handleLinkClick('/contact')}
-                className={`px-3 py-2 text-sm font-semibold transition-colors rounded ${
+                className={`px-3.5 py-2 text-[14px] font-heading font-semibold transition-all rounded-xl ${
                   currentPath.startsWith('/contact')
-                    ? 'text-[#a81c24] bg-red-50/70 font-bold'
-                    : 'text-slate-700 hover:text-[#1e73be] hover:bg-slate-50'
+                    ? 'text-[#a81c24] bg-red-50/90 font-bold border border-red-200/60 shadow-xs'
+                    : 'text-slate-800 hover:text-[#1e73be] hover:bg-slate-100/80'
                 }`}
                 id="nav-link-contact"
               >
@@ -301,37 +328,37 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
 
             {/* Right Action Buttons */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2.5">
               
-              {/* Search Toggle */}
+              {/* Quick Search Toggle */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="p-2 text-slate-600 hover:text-[#1e73be] hover:bg-slate-100 rounded-xl transition-colors border border-slate-200 shadow-sm"
-                title="Search Solutions & Equipment"
+                className="p-2 text-slate-700 hover:text-[#1e73be] hover:bg-slate-100 rounded-xl transition-colors border border-slate-200 shadow-xs"
+                title="Search Solutions, Partners & Equipment"
                 id="header-search-btn"
                 aria-label="Search"
               >
                 <Search className="w-4 h-4" />
               </button>
 
-              {/* Consultation / Quote Button */}
+              {/* Attractive High-Impact "Get a Quote" Button */}
               <button
                 onClick={() => onRequestConsultation()}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold tracking-wider uppercase font-mono btn-pill-red shadow-md active:scale-95"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold tracking-wider uppercase font-mono bg-gradient-to-r from-[#a81c24] via-[#b91c26] to-[#a81c24] hover:from-[#92141c] hover:to-[#a81c24] text-white rounded-full shadow-md hover:shadow-lg hover:shadow-red-600/25 active:scale-95 transition-all border border-red-600/40"
                 id="nav-consultation-btn"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
 
-              {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:text-black lg:hidden rounded-xl hover:bg-slate-100 focus:outline-none border border-slate-200"
+                className="p-2 text-slate-800 hover:text-black lg:hidden rounded-xl hover:bg-slate-100 focus:outline-none border border-slate-200"
                 aria-label="Toggle Menu"
                 id="mobile-menu-toggle"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-[#a81c24]" />}
+                {mobileMenuOpen ? <X className="w-6 h-6 text-slate-900" /> : <Menu className="w-6 h-6 text-[#a81c24]" />}
               </button>
 
             </div>
@@ -340,7 +367,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </header>
 
-      {/* Quick Search Overlay Modal (Light Theme) */}
+      {/* Quick Search Overlay Modal */}
       {searchOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-start justify-center pt-24 px-4">
           <div className="bg-white border border-slate-200 w-full max-w-2xl rounded-3xl p-6 shadow-2xl">
@@ -349,11 +376,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <Search className="w-5 h-5 text-[#1e73be]" />
                 <input
                   type="text"
-                  placeholder="Search solutions, systems (e.g. SCADA, Starkgen, Bristol, Forend, Solar)..."
+                  placeholder="Search solutions, systems (e.g. SCADA, Starkgen, Bristol, Forend, Hakel, Solar)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
-                  className="bg-transparent text-slate-900 placeholder-slate-400 focus:outline-none w-full text-base font-medium"
+                  className="bg-transparent text-slate-900 placeholder-slate-400 focus:outline-none w-full text-base font-semibold"
                 />
               </div>
               <button
@@ -362,6 +389,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setSearchQuery('');
                 }}
                 className="text-slate-400 hover:text-slate-700 p-1"
+                aria-label="Close Search"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -404,59 +432,78 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       )}
 
-      {/* Mobile Drawer Menu (Light Theme) */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white lg:hidden flex flex-col pt-24 px-6 pb-8 overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-white lg:hidden flex flex-col pt-20 px-6 pb-8 overflow-y-auto">
           <div className="border-b border-slate-100 pb-4 mb-4">
-            <div className="text-xs font-mono text-[#a81c24] uppercase tracking-widest font-bold mb-1">
-              LV Engineering
-            </div>
-            <div className="text-base font-bold text-slate-900 font-heading">
-              Turning Concepts Into Engineering Marvels
-            </div>
+            <LVBrandLogo size="md" onClick={() => handleLinkClick('/')} />
           </div>
 
-          <nav className="flex flex-col space-y-1 mb-6">
+          <nav className="flex flex-col space-y-1 mb-6 font-heading">
             <button
               onClick={() => handleLinkClick('/')}
-              className="text-left py-3 px-4 rounded-xl font-semibold text-base text-slate-800 hover:bg-slate-50 flex items-center justify-between"
+              className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
+                currentPath === '/' ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+              }`}
             >
               <span>Home</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
             <button
               onClick={() => handleLinkClick('/about')}
-              className="text-left py-3 px-4 rounded-xl font-semibold text-base text-slate-800 hover:bg-slate-50 flex items-center justify-between"
+              className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
+                currentPath.startsWith('/about') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+              }`}
             >
               <span>About Us</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
             <button
               onClick={() => handleLinkClick('/solutions')}
-              className="text-left py-3 px-4 rounded-xl font-semibold text-base text-[#a81c24] bg-red-50/50 flex items-center justify-between font-bold"
+              className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
+                currentPath.startsWith('/solutions') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+              }`}
             >
-              <span>Solutions Portfolio (12 Disciplines)</span>
-              <ArrowRight className="w-4 h-4 text-[#a81c24]" />
-            </button>
-            <button
-              onClick={() => handleLinkClick('#services')}
-              className="text-left py-3 px-4 rounded-xl font-semibold text-base text-slate-800 hover:bg-slate-50 flex items-center justify-between"
-            >
-              <span>Electrical Services (21 Items)</span>
+              <span>Solutions Catalog (12 Disciplines)</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
             <button
-              onClick={() => handleLinkClick('#solar')}
-              className="text-left py-3 px-4 rounded-xl font-semibold text-base text-slate-800 hover:bg-slate-50 flex items-center justify-between"
+              onClick={() => handleLinkClick('/services')}
+              className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
+                currentPath.startsWith('/services') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+              }`}
             >
-              <span>Solar Energy Solutions</span>
+              <span>Electrical Services (21 Solutions)</span>
+              <ArrowRight className="w-4 h-4 text-slate-400" />
+            </button>
+            <button
+              onClick={() => handleLinkClick('/solar')}
+              className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
+                currentPath.startsWith('/solar') ? 'text-amber-600 bg-amber-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <Sun className="w-4 h-4 text-amber-500" />
+                <span>Solar Energy Solutions</span>
+              </span>
+              <ArrowRight className="w-4 h-4 text-slate-400" />
+            </button>
+            <button
+              onClick={() => handleLinkClick('/projects')}
+              className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
+                currentPath.startsWith('/projects') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+              }`}
+            >
+              <span>Verified Projects Portfolio</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
             <button
               onClick={() => handleLinkClick('/contact')}
-              className="text-left py-3 px-4 rounded-xl font-semibold text-base text-slate-800 hover:bg-slate-50 flex items-center justify-between"
+              className={`text-left py-3 px-4 rounded-xl font-semibold text-base flex items-center justify-between ${
+                currentPath.startsWith('/contact') ? 'text-[#a81c24] bg-red-50/80 font-bold' : 'text-slate-800 hover:bg-slate-50'
+              }`}
             >
-              <span>Contact & Regional Offices</span>
+              <span>Contact Regional Offices</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
           </nav>
@@ -468,7 +515,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onRequestConsultation();
               }}
-              className="w-full py-3.5 btn-pill-red font-bold font-mono tracking-wider uppercase text-xs rounded-full shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-gradient-to-r from-[#a81c24] via-[#b91c26] to-[#a81c24] text-white font-bold font-mono tracking-wider uppercase text-xs rounded-full shadow-md flex items-center justify-center gap-2"
             >
               <span>Request Consultation / Quote</span>
               <ArrowRight className="w-4 h-4" />
@@ -478,7 +525,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleLinkClick('/contact')}
               className="w-full py-3 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold font-mono tracking-wider uppercase text-xs shadow-sm flex items-center justify-center gap-2 transition-colors"
             >
-              <span>Regional Offices & Inquiries</span>
+              <span>Karachi & Lahore Regional Offices</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
           </div>
